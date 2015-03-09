@@ -1,8 +1,11 @@
 <% provide :title, "#{@subject.name} - informacje" %>
 
-<h1><%= @subject.name %> - informacje o przedmiocie</h1>
-
 <div class="subject-info-content">
+  <h1><%= @subject.name %> - informacje o przedmiocie</h1>
+  <div class="subject-image">
+    <%= image_tag @subject.image_url.to_s %>
+  </div>
+
   <section class="table-of-contents">
     <h2>Dostępne lekcje</h2>
     <%= render partial: 'subjects/table_of_contents',
@@ -12,10 +15,10 @@
     <h2>Opis przedmiotu</h2>
     <p><%= @subject.description %></p>
   </section>
-  <section class="intro-video">
+  <section class="intro-video-container">
     <iframe
-      class = "lesson-video"
-      src = <%= @subject.intro_video_link %> allowfullscreen>
+      class = "intro-video"
+      src = <%= @subject.embed_intro_video_link %> allowfullscreen>
 
       </iframe>
   </section>

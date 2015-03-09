@@ -69,6 +69,11 @@ class Subject < ActiveRecord::Base
     name
   end
 
+  def embed_intro_video_link
+    intro_video_link.gsub("watch?v=", "embed/") + video_params
+  end
+
+
 
   protected
 
