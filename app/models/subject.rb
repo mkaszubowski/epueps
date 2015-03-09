@@ -6,8 +6,9 @@ class Subject < ActiveRecord::Base
 
   before_save :validate_link
 
-
   friendly_id :name, use: [:slugged, :finders]
+
+  mount_uploader :image, SubjectImageUploader
 
   scope :popular,     -> { order('popularity DESC') }
   scope :recent,      -> { order('created_at DESC') }

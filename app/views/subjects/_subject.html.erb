@@ -1,6 +1,6 @@
 <article class="subject">
 	 <h2><%= link_to subject.name, subject_path(subject) %></h2> 
-	<%= image_tag subject.image_src %>
+	<%= image_tag subject.image_url.to_s %>
 	<section class = "description">
 		<%= truncate 	sanitize(subject.description), 
 									length: 200,

@@ -72,7 +72,8 @@ class Admin::SubjectsController < ApplicationController
   def subject_params
     params.require(:subject).permit(:name,
                                     :intro_video_link,
-                                    :description)
+                                    :description,
+                                    :image)
   end
 
   def set_subject
