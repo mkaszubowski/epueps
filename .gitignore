@@ -17,3 +17,6 @@
 epueps.sublime-workspace
 epueps.sublime-project
 /coverage
+/config/secrets.yml
+/config/database.yml
+/config
