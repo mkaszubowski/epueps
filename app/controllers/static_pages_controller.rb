@@ -1,13 +1,8 @@
 class StaticPagesController < ApplicationController
-  # def home
-  #   @splash = true unless user_signed_in?
-  #   @subjects = Subject.published.popular.limit(3)
-  # end
-
   def home
-    @splash = true 
+    @splash = true unless user_signed_in?
     @subjects = Subject.published.popular.limit(3)
-    @articles = Article.includes(:user).all
+   @articles = Article.includes(:user).all
   end
   
   def contact
