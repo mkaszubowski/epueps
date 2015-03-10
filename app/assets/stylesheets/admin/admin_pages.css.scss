@@ -2,18 +2,33 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$sidebar-width: 5em;
+$sidebar-width: 15em;
 
 .admin-sidebar {
   width: $sidebar-width;
   background: #2c3b4b;
-  position: fixed;
+  position: absolute;
   left: 0;
   top: 4em;
+  padding-top: 1.5em;
+  z-index: 1;
   text-align: center;
+  height: 100vh;
 
   img {
     width: 2.3em;
+  }
+
+  li {
+    a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1em;
+      line-height: 1.5em;
+      &.active, &:hover {
+        color: #EB8A45;
+      }
+    }
   }
 }
 
