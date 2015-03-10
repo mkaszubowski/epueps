@@ -4,8 +4,6 @@ class Subject < ActiveRecord::Base
   
   has_many :lessons, dependent: :destroy
 
-  before_save :validate_link
-
   friendly_id :name, use: [:slugged, :finders]
 
   mount_uploader :image, SubjectImageUploader
@@ -15,50 +13,41 @@ class Subject < ActiveRecord::Base
   scope :deleted,     -> { where(status: 'deleted') }
   scope :published,   -> { where(status: 'published') }
   scope :drafts,      -> { where(status: 'draft') }
-  scope :not_deleted, -> { where("status != 'deleted'") }
+  scope :not_deleted, -> { where('status != 'deleted'') }
 
-  validates :name, 
-            presence: { message: "Nazwa nie może być pusta" },
+  validates :name,
+            presence: { message: 'Nazwa nie może być pusta' }
+  validates :description,
+            presence: { message: 'Opis nie może być pusty' },
             on: :publish
-  validates :description, 
-            presence: {message: "Opis nie może być pusty"},
-            on: :publish
-  validates :intro_video_link, 
-            format: 
+  validates :intro_video_link,
+            format:
               { with: VIDEO_LINK_REGEX,
-                message: "Niepoprawny format"
+                message: 'Niepoprawny format'
               },
-            unless: "intro_video_link.blank?"
+            unless: 'intro_video_link.blank?'
   
-
-  def image_src
-    if self.image_name
-      "subjects/#{self.image_name}" 
-    else
-      "subjects/subject-#{self.id}.jpg"
-    end
-  end
-
   def publish
-    return false unless self.save(context: :publish)
-    
-    self.update_attribute(:status, "published")
+    return false unless validate_link
+    return false unless save(context: :publish) 
+   
+    update_attribute(:status, 'published')
   end
 
   def published?
-    status == "published"
+    status == 'published'
   end
 
-  def destroy(permament=false)
-    if permament || status == "deleted"
+  def destroy(permament = false)
+    if permament || status == 'deleted'
       super()
     else
-      self.update_attribute(:status, "deleted")
+      self.update_attribute(:status, 'deleted')
     end
   end
 
   def deleted?
-    status == "deleted"
+    status == 'deleted'
   end
 
   def increase_popularity
@@ -70,7 +59,7 @@ class Subject < ActiveRecord::Base
   end
 
   def embed_intro_video_link
-    intro_video_link.gsub("watch?v=", "embed/") + video_params
+    intro_video_link.gsub('watch?v=', 'embed/') + video_params
   end
 
 
