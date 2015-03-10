@@ -1,7 +1,7 @@
 class Subject < ActiveRecord::Base
   extend FriendlyId
   include YoutubeUtilities
-  
+ 
   has_many :lessons, dependent: :destroy
 
   friendly_id :name, use: [:slugged, :finders]
@@ -13,7 +13,7 @@ class Subject < ActiveRecord::Base
   scope :deleted,     -> { where(status: 'deleted') }
   scope :published,   -> { where(status: 'published') }
   scope :drafts,      -> { where(status: 'draft') }
-  scope :not_deleted, -> { where('status != 'deleted'') }
+  scope :not_deleted, -> { where('status != "deleted"') }
 
   validates :name,
             presence: { message: 'Nazwa nie może być pusta' }
@@ -62,13 +62,11 @@ class Subject < ActiveRecord::Base
     intro_video_link.gsub('watch?v=', 'embed/') + video_params
   end
 
-
-
   protected
 
   def validate_link
     unless intro_video_link.nil?
-      self.intro_video_link = validate_youtube_link(self.intro_video_link)
+      self.intro_video_link = validate_youtube_link(intro_video_link)
     end
   end
 end
