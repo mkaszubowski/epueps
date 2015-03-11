@@ -60,6 +60,7 @@ class Subject < ActiveRecord::Base
   end
 
   def embed_intro_video_link
+    return nil unless intro_video_link.present?
     intro_video_link.gsub('watch?v=', 'embed/') + video_params
   end
 
