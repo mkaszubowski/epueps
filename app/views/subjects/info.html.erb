@@ -15,13 +15,15 @@
     <h2>Opis przedmiotu</h2>
     <p><%= @subject.description %></p>
   </section>
-  <section class="intro-video-container">
-    <iframe
-      class = "intro-video"
-      src = <%= @subject.embed_intro_video_link %> allowfullscreen>
+  <% unless @subject.embed_intro_video_link.nil? %>
+    <section class="intro-video-container">
+      <iframe
+        class = "intro-video"
+        src = <%= @subject.embed_intro_video_link %> allowfullscreen>
 
-      </iframe>
-  </section>
+        </iframe>
+    </section>
+  <% end %>
 
   <%= link_to "Zacznij kurs", 
               subject_path(@subject), 
