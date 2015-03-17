@@ -37,6 +37,8 @@ gem 'factory_girl_rails'
 gem 'friendly_id', '~> 5.0.0'
 gem 'redcarpet'
 gem 'carrierwave'
+gem 'ckeditor'
+gem 'mini_magick'
 
 gem 'capistrano', '~> 3.3.0'
 gem 'capistrano-rvm',   '~> 0.1', require: false

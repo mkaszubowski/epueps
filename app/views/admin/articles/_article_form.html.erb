@@ -3,7 +3,7 @@
                     url: article_form_url(@article),
                     html: { class: 'custom-form'} do |f| %>
   <%= f.input :title,  label: 'Tytuł' %>
-  <%= f.input :body,   label: 'Treść' %>
+  <%= f.input :body, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'Full'} } %>
   <%= f.submit  article_form_submit(@article), 
                 class: 'button button-primary' %>
 <% end %>
