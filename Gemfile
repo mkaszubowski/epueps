@@ -44,6 +44,7 @@ gem 'capistrano', '~> 3.3.0'
 gem 'capistrano-rvm',   '~> 0.1', require: false
 gem 'capistrano-bundler', '~> 1.1.2'
 gem 'capistrano-rails-console'
+gem 'capistrano-rails'
 
 group :doc do
   gem 'sdoc', '0.3.20', require: false
