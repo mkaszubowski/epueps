@@ -1,3 +1,6 @@
+require "ckeditor/orm/active_record"
+
+
 class Ckeditor::Asset < ActiveRecord::Base
   include ActiveRecord
   include Ckeditor::Orm::ActiveRecord::AssetBase
