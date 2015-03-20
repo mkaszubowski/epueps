@@ -1,6 +1,6 @@
 <tr>
   <td><%= user.email %></td>
-  <td><%= user.last_sign_in_at.strftime("%Y-%m-%d") %></td>
+  <td><%= user.last_sign_in_at.try { strftime("%Y-%m-%d") } || '-'  %></td>
   <td><%= user.last_sign_in_ip %></td>
   <td><%= user.admin? ? "tak" : "nie" %></td>
 

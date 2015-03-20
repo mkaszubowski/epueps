@@ -3,7 +3,7 @@
                   admin_subject_lesson_path(@subject, lesson) %></td>
   <!-- TODO: Optimize this(Too many queries) -->
   <td><%= lesson.videos_count %></td>
-  <td><%= lesson.created_at.strftime("%Y-%m-%d") %></td>
+  <td><%= lesson.created_at.try { strftime("%Y-%m-%d") } || '-' %></td>
   <td>
     <!-- TODO: Add confirmation -->
     <%= link_to "Usuń", 
