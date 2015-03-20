@@ -1,15 +1,16 @@
 
-<header id = "page-header">
-	<div class = "container">
-		<div id="logo"><%= link_to "ePUEPS", root_path %></div>
+<header id = 'page-header'>
+	<div class = 'container'>
+		<div id='logo'><%= link_to 'ePUEPS', root_path %></div>
 
-		<nav id="main-menu">
+		<nav id='main-menu'>
 			<ul>
-				<li><%= link_to "Wszystkie kursy", subjects_path %></li>
-				<li><%= link_to "O platformie", '#' %></li>
+				<li><%= link_to 'Wszystkie kursy', subjects_path %></li>
+				<li><%= link_to 'Artykuły', articles_path %></li>
+				<li><%= link_to 'O platformie', '#' %></li>
 
 				<% if user_signed_in? && current_user.admin? %>
-					<li><%= link_to "Panel administracyjny", admin_path %></li>
+					<li><%= link_to 'Panel administracyjny', admin_path %></li>
 				<% end %>
 
 				<li><%= sign_in_out_link %></li>
@@ -23,5 +24,5 @@
 <%= render 'layouts/flash_messages' %>
 
 <% unless @splash %>
-	<div class = "container">
+	<div class = 'container'>
 <% end %>
