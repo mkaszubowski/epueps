@@ -19,7 +19,7 @@ describe Subject do
 
   describe 'when name is blank' do
     before { @subject.name = ' ' }
-    it { should be_valid }
+    it { should_not be_valid }
 
     context 'on publish' do
       it 'should not be valid' do
@@ -118,7 +118,7 @@ describe Subject do
   describe '#status' do
 
     describe 'default' do
-      it 'should be 'draft'' do
+      it "should be 'draft'" do
         expect(@subject.status).to eq 'draft'
       end
     end
