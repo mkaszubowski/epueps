@@ -47,10 +47,17 @@ RSpec.describe 'AdminSubjectPages', :type => :request do
           it { should have_content 'Usunięto przedmiot' }
         end
 
-        it 'should change the subject count' do
+        it 'should not change the subject count' do
           expect { click_link 'Usuń', 
                    href: admin_subject_path(subject1) }.
-            to change(Subject, :count).by(-1)
+            not_to change(Subject, :count)
+        end
+
+        it 'should change subject status' do
+          click_link 'Usuń', href: admin_subject_path(subject1) 
+          subject1.reload
+          
+          expect(subject1.status).to eq 'deleted'
         end
       end
 
