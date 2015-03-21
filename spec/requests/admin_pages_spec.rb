@@ -35,6 +35,19 @@ RSpec.describe "AdminPages", :type => :request do
       it { should have_content "Lekcje: 0" }
       it { should have_content "Filmy: 0" }
       it { should have_content "Użytkownicy: 1" }
+
+      it 'should have link to subjects page' do
+        expect(page).to have_link 'Przedmioty', href: admin_subjects_path
+      end
+      it 'should have link to articles page' do
+        expect(page).to have_link 'Artykuły', href: admin_articles_path
+      end
+      it 'should have link to users page' do
+        expect(page).to have_link 'Użytkownicy', href: admin_users_path
+      end
+      it 'should have returning link to the portal' do
+        expect(page).to have_link 'Powrót do witryny', href: root_path
+      end
     end
   end
 end
