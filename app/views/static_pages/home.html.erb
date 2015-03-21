@@ -1,43 +1,46 @@
 <% if @splash %>
-  <section id="home-splash">
-    <div class = "container">
+  <section id='home-splash'>
+    <div class = 'container'>
 
       <h1>Witamy<br />w platformie ePUEPS</h1>
 
-      <%= link_to "Przeglądaj kursy", 
+      <%= link_to 'Przeglądaj kursy', 
                   subjects_path, 
-                  class: "button button-secondary" %>
+                  class: 'button button-secondary' %>
       <% if user_signed_in? %>
-        <%= link_to "O platformie", '#', class: "button button-primary" %>
+        <%= link_to 'O platformie', '#', class: 'button button-primary' %>
       <% else %>
-        <%= link_to "Zaloguj się", 
+        <%= link_to 'Zaloguj się', 
                   new_user_session_path,
-                  class: "button button-primary" %>
+                  class: 'button button-primary' %>
       <% end %>
 
     </div>
   </section>
 <% end %>
 
-<div class="page-content">
-  <section id = "home-subjects">
+<div class='page-content'>
+  <section id = 'home-subjects'>
     <h1>Dostępne kursy</h1>
-    <div class = "container">
+    <div class = 'container'>
       <%= render @subjects %>
 
     </div>
-    <!-- TODO: Do something to make this look nice -->
-    <%= link_to "Wszystkie kursy", 
+    <%= link_to 'Wszystkie kursy', 
                 subjects_path,
-                class: "button button-secondary" %>
+                class: 'button button-secondary' %>
   </section>
 
   <% if @articles.any? %>
-    <section id="home-articles" class="articles">
+    <section id='home-articles' class='articles'>
       <h1>Najnowsze artykuły</h1>
-      <div class="container">
+      <div class='container'>
         <%= render @articles %>
       </div>
+
+      <%= link_to 'Wszystkie artykuły',
+                  articles_path,
+                  class: 'button button-secondary' %>
         
     </section>
   <% end %>
