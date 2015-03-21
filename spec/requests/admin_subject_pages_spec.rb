@@ -5,6 +5,7 @@ RSpec.describe 'AdminSubjectPages', :type => :request do
   let(:admin) { FactoryGirl.create(:admin) }
   let!(:subject1) { FactoryGirl.create(:subject, name: 'S1') }
   let!(:subject2) { FactoryGirl.create(:subject, name: 'S2') }
+  let!(:deleted_subject) { FactoryGirl.create(:subject, name: 'S3', status: 'deleted') }
   let!(:lesson1) { FactoryGirl.create(:lesson, subject: subject1) }
 
   subject { page }
@@ -172,5 +173,29 @@ RSpec.describe 'AdminSubjectPages', :type => :request do
 
     it { should have_content lesson1.name }
 
+  end
+
+  describe 'deleted subjects page' do
+    before do
+      sign_in admin
+      visit deleted_admin_subjects_path 
+    end
+
+    it 'should show only deleted subjects' do
+      expect(page).to have_content deleted_subject.name
+      expect(page).not_to have_content subject1.name
+      expect(page).not_to have_content subject2.name
+    end
+
+    describe 'deleting subject' do
+      it 'should delete subject' do
+        expect { click_link 'Usuń' }.to change(Subject, :count).by(-1)
+      end
+
+      it 'should remove subject from deleted subjects list' do
+        click_link 'Usuń'
+        expect(page).not_to have_content deleted_subject.name
+      end
+    end
   end
 end
