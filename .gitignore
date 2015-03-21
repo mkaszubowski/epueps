@@ -20,3 +20,4 @@ epueps.sublime-project
 /config/secrets.yml
 /config/database.yml
 /config
+/config/deploy.rb
