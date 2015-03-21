@@ -1,9 +1,8 @@
-
 <%= simple_form_for @article,
                     url: article_form_url(@article),
                     html: { class: 'custom-form'} do |f| %>
   <%= f.input :title,  label: 'Tytuł' %>
-  <%= f.input :body, :as => :ckeditor, :input_html => { :ckeditor => { :toolbar => 'mini' } } %>
+  <%= f.input :body, as: :ckeditor, label: 'Treść', input_html: { ckeditor: { toolbar: 'mini' } } %>
   <%= f.submit  article_form_submit(@article), 
                 class: 'button button-primary' %>
 <% end %>
