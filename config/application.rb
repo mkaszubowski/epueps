@@ -31,5 +31,7 @@ module Epueps
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
 
     config.assets.precompile += %w( ckeditor/* )
+
+    config.active_record.raise_in_transactional_callbacks = true
   end
 end
