@@ -37,7 +37,13 @@ RSpec.describe 'AdminSubjectPages', :type => :request do
       it { should have_content subject1.lessons.count }
       it { should have_content subject2.lessons.count }
 
-      it { should have_link 'Nowy przedmiot' }
+      it 'should have link for creating a new subject' do
+        expect(page).to have_link 'Nowy przedmiot', href: new_admin_subject_path
+      end
+
+      it 'should have link to deleted subjects list' do
+        expect(page).to have_link 'Usunięte przedmioty', href: deleted_admin_subjects_path
+      end
 
 
       describe 'deleting subject' do
