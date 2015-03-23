@@ -351,31 +351,3 @@ table.primary-table {
     }
   }
 
-.articles {
-  width: 90%;
-  max-width: 1050px;
-  margin: 0 auto;
-
-  
-
-  text-align: left;
-
-  h1, h2 {
-    text-align: center;
-    line-height: 1.2;
-  }
-
-  h1 { 
-    color: $primary;
-  }
-
-  .author {
-    text-align: center;
-    font-size: 0.8em;
-  }
-
-  article {
-    font-size: 1.3em;
-    line-height: 1.5;
-  }
-}
