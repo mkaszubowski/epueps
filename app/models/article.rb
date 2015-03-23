@@ -17,4 +17,8 @@ class Article < ActiveRecord::Base
   def short_title
     title.truncate(50, separator: ' ')
   end
+
+  def published_at
+    created_at.strftime('%d.%m.%Y')
+  end
 end

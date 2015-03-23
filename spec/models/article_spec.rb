@@ -54,5 +54,11 @@ RSpec.describe Article, :type => :model do
       end
     end
   end
+
+  describe '#published_at' do
+    it 'should return date in a correct format' do
+      expect(@article.published_at).to match /\d{2}\.\d{2}\.\d{4}/
+    end
+  end
 end
 
