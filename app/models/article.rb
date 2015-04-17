@@ -8,10 +8,7 @@ class Article < ActiveRecord::Base
   validates :user_id, presence: true
 
   def body_text
-    markdown = Redcarpet::Markdown.new(
-      Redcarpet::Render::HTML, autolinks: true, tables: true)
-
-    markdown.render(body)
+    body
   end
 
   def short_title
@@ -21,4 +18,5 @@ class Article < ActiveRecord::Base
   def published_at
     created_at.strftime('%d.%m.%Y')
   end
+
 end

@@ -2,13 +2,41 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "vars";
+
+
 .article {
+  max-width: 960px;
+  margin: 0 auto;
+
+  font-size: 18px;
+  line-height: 1.5em;
   img {
     width: 100% !important; // TODO: dont use important here
     height: 100% !important;
     margin: 0 auto;
     display: block;
   }
+
+  p {
+    font-size: 1.3em;
+  }
+
+  h1 {
+    margin-bottom: 0;
+    line-height: 1.2em;
+  }
+
+  header {
+    margin-bottom: 1.7em;
+    border-bottom: 1px solid lighten($text-color, 30%);
+
+    a {
+      color: $text-color;
+      text-decoration: none;
+    }
+  }
+
 }
 
 .articles {
@@ -25,8 +53,19 @@
     line-height: 1.2;
   }
 
-  h1 { 
-    color: $primary;
+  header {
+
+    h2 {
+      text-align: left;
+      font-size: 1.6em;
+      font-family: 'Roboto Slab';
+      line-height: 0.8em;
+    }
+
+    .meta {
+      font-size: 0.6em;
+    }
+
   }
 
   .author {
@@ -37,5 +76,31 @@
   article {
     font-size: 1.3em;
     line-height: 1.5;
+    margin-bottom: 5em;
+
+    .read-more {
+      display: none;
+    }
+  }
+}
+
+
+.static-pages-controller.home,
+.articles.index {
+  article {
+    margin-bottom: 3em;
+    p {
+      display: none;
+      &:nth-child(3) {
+        display: block;
+        margin-bottom: 0.5em;
+      }
+
+    }
+    .read-more {
+      text-decoration: none;
+      color: $primary;
+      display: inline;
+    }
   }
 }

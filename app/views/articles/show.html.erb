@@ -1,5 +1,15 @@
 <% provide :title, @article.title %>
 
-<h1><%= @article.title %></h1>
+<article class = "article show">
+  <header>
+    <h1><%= @article.title %></h1>
+    <span class="meta">
+      <%= @article.published_at %> |
+      <%= @article.user.email %> 
 
-<p><%= raw @article.body_text %></p>
+    </span>
+  </header>
+
+
+  <p><%= raw @article.body_text %></p>
+</article>

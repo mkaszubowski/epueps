@@ -28,14 +28,6 @@ RSpec.describe Article, :type => :model do
     it { should_not be_valid }
   end
 
-  describe "markdown renderer" do
-    before { @article.body = '# Header' }
-
-    it "shoud render correct html" do
-      expect(@article.body_text).to eq "<h1>Header</h1>\n"
-    end
-  end
-
   describe '#short_title' do
 
     describe 'when title is too long' do

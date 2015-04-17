@@ -1,14 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,100&subset=latin,latin-ext);
-
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,300&subset=latin,latin-ext);
 
-$primary: #eb8a45;
-$secondary: #008F9C;
-
-$text-color: #575757;
-
-$header-bg: #2C3B4B;
-$header-height: 4rem;
+@import "vars";
 
 /* ******* */
 /* GENERAL */
@@ -26,7 +19,7 @@ $header-height: 4rem;
 
 body {
   color: $text-color;
-  background: #E5EBEC;
+  background: #F5F5F5;
 }
 
 a.active {
@@ -40,9 +33,11 @@ a {
 html, body, ul, h1, h2, h3, h4, h5, h6{
   margin: 0;
   padding: 0;
-
-  font-family: 'Roboto', sans-serif;
   font-weight: 300;
+}
+
+html, body, ul {
+  font-family: 'Roboto', sans-serif;
 }
 
 input {
@@ -51,8 +46,9 @@ input {
 
 
 h1 {
-  margin-bottom: 2rem;
-  font-size: 2.5em;
+  font-size: 3em;
+  font-family: 'Roboto Slab', serif;
+  margin-bottom: 2em;
 }
 .container {
   width: 90%;

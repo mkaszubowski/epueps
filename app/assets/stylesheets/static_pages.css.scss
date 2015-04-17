@@ -33,14 +33,9 @@ $text-color: #575757;
 }
 
 #home-subjects {
-	background: #E5EBEC;
+	background: #F5F5F5;
 	padding: 2em 0;
 	padding-bottom: 3em;
-
-	h1 {
-		margin-bottom: 1em;
-		color: $text-color;
-	}
 
 	a {
 		color: inherit;
@@ -74,8 +69,4 @@ $text-color: #575757;
 
 #home-articles {
 	padding-top: 2em;
-
-	h1 {
-		margin-bottom: 1em;
-	}
 }
