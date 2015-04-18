@@ -26,4 +26,9 @@ class Lesson < ActiveRecord::Base
   def to_s
     name
   end  
+
+  def color_class
+    return '' if color_id.nil?
+    "color-#{color_id}" 
+  end
 end

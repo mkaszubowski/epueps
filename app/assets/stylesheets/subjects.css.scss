@@ -3,6 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+@import "vars";
+
 .subject-index {
 	h1 {
 		margin-bottom: 0;
@@ -78,7 +80,6 @@
 
 		h2 {
 			line-height: 2.5rem;
-			background: #2C3B4B;
 			width: 100%;
 			color: #fff;
 			border-left: 7px solid #008f9c;
@@ -86,6 +87,20 @@
 			font-size: 1.1em;
 
 			transition: 0.3s;
+
+			background: #2C3B4B;
+			&.color-1 {
+				background: $lesson-color-1;
+				a { color: $text-color; }
+			}
+			&.color-2 {
+				background: $lesson-color-2;
+				a { color: #fff; }
+			}
+			&.color-3 {
+				background: $lesson-color-3;
+				// a { color: #fff; }
+			}
 
 			&:hover {
 				border-left: 14px solid #008f9c;

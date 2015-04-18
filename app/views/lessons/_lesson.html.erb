@@ -1,9 +1,11 @@
 <li class = "lesson <%= 'active' if lesson == current_lesson %>" id = <%= "lesson-#{lesson.id}" %>>
 
-  <h2><%= link_to lesson.name, 
-                    subject_path( lesson.subject, 
-                    params: {video_id: lesson.videos.first.id}), 
-                    remote: true %>
+  <h2 class = "<%= lesson.color_class %>">
+    <%= link_to lesson.name, 
+          subject_path( lesson.subject, 
+          params: {video_id: lesson.videos.first.id}), 
+          remote: true,
+          class: "#{lesson.color_class}" %>
   </h2>
 
   <ul class = "lesson-videos">

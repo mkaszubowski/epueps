@@ -65,13 +65,13 @@ describe Lesson do
   end
 
 
-  describe "to_s method" do
+  describe '#to_s' do
     it "should return lesson's name" do
       expect(@lesson.to_s). to eq @lesson.name
     end
   end
 
-  describe "resources method" do
+  describe '#resources' do
     before do
       @lesson_test = @subject.lessons.create(name: "l2", description: "desc")
       # delete the example video
@@ -82,6 +82,21 @@ describe Lesson do
 
     it "should return all the resources" do
       expect(@lesson_test.resources).to eq [@video_test]
+    end
+  end
+
+  describe '#color_class' do
+    before do 
+      @lesson = @subject.lessons.create(name: "lesson", description: "desc")
+    end
+
+    it 'is empty when lesson has no custom color' do
+      expect(@lesson.color_class).to eq ''
+    end
+
+    it 'returns correct color class' do
+      @lesson.update_attribute(:color_id, 1)
+      expect(@lesson.color_class).to eq 'color-1'
     end
   end
 
