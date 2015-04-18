@@ -1,19 +1,22 @@
 class Lesson < ActiveRecord::Base
 
   # has_many  :lesson_resources
-  has_many  :videos, 
-            dependent: :destroy
+  has_many  :videos, dependent: :destroy
 
   belongs_to :subject, counter_cache: true
 
-  default_scope { order('created_at ASC') }
+  default_scope { order('position ASC') }
 
-  validates :subject_id,  presence: true
-  validates :name,        presence:  
-                          { message: "Nazwa nie może być pusta" }
+  before_validation :set_initial_position
+
+  validates :subject_id, presence: true
+  validates :name, presence: 
+    { message: "Nazwa nie może być pusta" }
   validates :description, presence: 
-                          { message: "Opis nie może być pusty" }
-                      
+    { message: "Opis nie może być pusty" }
+  validates :position, presence: 
+    { message: "Pozycja nie może być pusta" }
+
   # TODO: Add other resources
   def resources
     videos
@@ -30,5 +33,14 @@ class Lesson < ActiveRecord::Base
   def color_class
     return '' if color_id.nil?
     "color-#{color_id}" 
+  end
+
+  protected
+
+  def set_initial_position
+    if position.nil?
+      max_position = subject.lessons.map(&:position).compact.max.to_i
+      self.position = max_position + 1 
+    end
   end
 end

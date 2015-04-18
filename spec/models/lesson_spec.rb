@@ -7,7 +7,8 @@ describe Lesson do
       description: "subject description")
   	@lesson = @subject.lessons.create(
       name: "lesson", 
-      description: "lesson description")
+      description: "lesson description",
+      position: 1)
     @video = @lesson.videos.create(
       link: "https://www.youtube.com/watch?v=5ca8p5OWniI",
       name: "Wykład")
@@ -35,6 +36,12 @@ describe Lesson do
   describe "when description is blank" do
   	before { @lesson.description = " " }
   	it { should_not be_valid }
+  end
+
+  it 'sets the position automatically if it is empty' do
+    @lesson.position = ''
+    expect(@lesson).to be_valid
+    expect(@lesson.position).not_to be_nil
   end
 
   describe "default scope" do
