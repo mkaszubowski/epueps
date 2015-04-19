@@ -1,4 +1,9 @@
 <tr>
+  <td>
+    <%= lesson.position %>
+    <%= link_to '+', '#' %>
+    <%= link_to '-', '#' %>
+  </td>
   <td><%= link_to lesson.name, 
                   admin_subject_lesson_path(@subject, lesson) %></td>
   <!-- TODO: Optimize this(Too many queries) -->
