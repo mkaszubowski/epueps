@@ -19,6 +19,6 @@ epueps.sublime-project
 /coverage
 /config/secrets.yml
 /config/database.yml
-/config
+/config/deploy/production.rb
 /config/deploy.rb
 .coveralls.yml
