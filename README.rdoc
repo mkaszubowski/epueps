@@ -2,6 +2,4 @@
 
 ePUEPS is codename for a student project - elearning platform for students of Poznań University of Technology.
 
-Written in Ruby 2.0.0 and Rails 4.1.1. 
-
-You can see it live on http://epueps.herokuapp.com 
+Written in Ruby 2.2.0 and Rails 4.2.0
