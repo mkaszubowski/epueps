@@ -1,6 +1,6 @@
 == README
 
-ePUEPS is codename for a student project - elearning platform for students of Poznań University of Technology.
+ePUEPS is a student project - elearning platform for students of Poznań University of Technology.
 
 Written in Ruby 2.2.0 and Rails 4.2.0
 
