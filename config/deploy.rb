@@ -1,9 +1,9 @@
 # config valid only for current version of Capistrano
 lock '3.3.5'
 
-set :application, 'rails'
+set :application, 'epueps'
 set :repo_url, 'https://github.com/mkaszubowski/epueps.git'
-set :deploy_to, '/home/rails'
+set :deploy_to, '/home/deploy/epueps'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
