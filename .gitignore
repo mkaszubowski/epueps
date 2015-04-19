@@ -21,3 +21,4 @@ epueps.sublime-project
 /config/database.yml
 /config
 /config/deploy.rb
+.coveralls.yml

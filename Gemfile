@@ -40,6 +40,8 @@ gem 'carrierwave'
 gem 'ckeditor'
 gem 'mini_magick'
 
+gem 'coveralls', require: false
+
 gem 'capistrano', '~> 3.3.0'
 gem 'capistrano-rvm',   '~> 0.1', require: false
 gem 'capistrano-bundler', '~> 1.1.2'
