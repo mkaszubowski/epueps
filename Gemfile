@@ -39,6 +39,7 @@ gem 'redcarpet'
 gem 'carrierwave'
 gem 'ckeditor'
 gem 'mini_magick'
+gem 'acts_as_list'
 
 gem 'coveralls', require: false
 
