@@ -1,8 +1,7 @@
 <tr>
   <td>
-    <%= lesson.position %>
-    <%= link_to '+', '#' %>
-    <%= link_to '-', '#' %>
+    <%= link_to '+', sort_admin_subject_lesson_path(@subject, lesson, position: 'up'),  remote: true %>
+    <%= link_to '-', sort_admin_subject_lesson_path(@subject, lesson, position: 'down'),  remote: true %>
   </td>
   <td><%= link_to lesson.name, 
                   admin_subject_lesson_path(@subject, lesson) %></td>

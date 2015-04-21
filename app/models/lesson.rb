@@ -1,23 +1,20 @@
 class Lesson < ActiveRecord::Base
 
-  # has_many  :lesson_resources
-  has_many  :videos, dependent: :destroy
+  has_many :videos, dependent: :destroy
 
   belongs_to :subject, counter_cache: true
+
+  acts_as_list scope: :subject
 
   default_scope { order('position ASC') }
 
   before_validation :set_initial_position
 
   validates :subject_id, presence: true
-  validates :name, presence: 
-    { message: "Nazwa nie może być pusta" }
-  validates :description, presence: 
-    { message: "Opis nie może być pusty" }
-  validates :position, presence: 
-    { message: "Pozycja nie może być pusta" }
+  validates :name, presence: { message: "Nazwa nie może być pusta" }
+  validates :description, presence: { message: "Opis nie może być pusty" }
+  validates :position, presence: { message: "Pozycja nie może być pusta" }
 
-  # TODO: Add other resources
   def resources
     videos
   end

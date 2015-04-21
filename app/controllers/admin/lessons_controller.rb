@@ -5,7 +5,7 @@ class Admin::LessonsController < ApplicationController
   layout 'admin'
 
   before_action :authenticate_admin
-  before_action :set_lesson, only: [:show, :destroy, :edit, :update]
+  before_action :set_lesson, only: [:show, :destroy, :edit, :update, :sort]
 
   def new
     @lesson = Lesson.new
@@ -37,6 +37,16 @@ class Admin::LessonsController < ApplicationController
       redirect_to admin_subject_path(@lesson.subject)
     else
       flash[:error] = 'Wystąpił błąd. Spróbuj ponownie później'
+    end
+  end
+
+  def sort
+    @subject = @lesson.subject
+
+    if params[:position] == 'up'
+      @lesson.move_higher
+    else
+      @lesson.move_lower
     end
   end
 

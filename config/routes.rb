@@ -15,6 +15,7 @@ Rails.application.routes.draw do
       get 'publish', to: 'subjects#publish', on: :member
 
       resources :lessons, except: [:index] do
+        get 'sort', to: 'lessons#sort', on: :member
         resources :videos, except: [:show, :index] 
       end
     end
