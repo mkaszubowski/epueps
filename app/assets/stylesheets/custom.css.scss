@@ -2,6 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto+Slab:400,300&subset=latin,latin-ext);
 
 @import "vars";
+@import "font-awesome";
 
 /* ******* */
 /* GENERAL */
@@ -28,6 +29,10 @@ a.active {
 
 a {
   color: $secondary;
+}
+
+a.fa {
+  text-decoration: none;
 }
 
 html, body, ul, h1, h2, h3, h4, h5, h6{
