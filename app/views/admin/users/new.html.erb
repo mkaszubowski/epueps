@@ -1,0 +1,16 @@
+<% provide :title, 'Nowy użytkownik' %>
+
+<section class="admin-panel">
+  <h1>Dodaj użytkownika</h1>
+  <div class="new-user-form">
+    <%= simple_form_for @user,
+          url: admin_users_path(@user),
+          html: { class: 'custom-form' } do |f| %>
+      <%= f.input :email, label: 'Email' %>
+      <%= f.input :password, label: 'Hasło' %>
+      <%= f.input :admin, label: 'Administrator' %>
+
+      <%= f.submit 'Dodaj' %>
+    <% end %>
+  </div>
+</section>

@@ -3,6 +3,12 @@
 <section class = "users-index admin-panel">
   <h1>Wszyscy użytkownicy</h1>
 
+  <div class="user-actions">
+    <%= link_to 'Dodaj użytkownika', new_admin_user_path,
+          class: 'button button-secondary' %>
+  </div>
+
+
   <section class="search">
     <%= form_tag admin_users_path, method: :get do %>
       <%= search_field_tag 'search'  %>
