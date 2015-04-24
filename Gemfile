@@ -51,6 +51,8 @@ gem 'capistrano-bundler', '~> 1.1.2'
 gem 'capistrano-rails-console'
 gem 'capistrano-rails'
 
+gem 'cancancan', '~> 1.10'
+
 group :doc do
   gem 'sdoc', '0.3.20', require: false
 end

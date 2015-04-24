@@ -52,6 +52,7 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (>= 1.6.0)
     callsite (0.0.11)
+    cancancan (1.10.1)
     capistrano (3.3.5)
       capistrano-stats (~> 1.1.0)
       i18n
@@ -335,6 +336,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bullet
+  cancancan (~> 1.10)
   capistrano (~> 3.3.0)
   capistrano-bundler (~> 1.1.2)
   capistrano-rails
