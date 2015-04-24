@@ -1,58 +1,55 @@
-class Admin::ArticlesController < ApplicationController
-  include Admin
+module Admin
+  class ArticlesController < BaseController
+    load_and_authorize_resource
 
-  layout 'admin'
+    def index
+      @articles = SortAndFilterData.call(Article.includes(:user), params)
+    end
 
-  before_action :authenticate_admin
-  before_action :set_article, only: [:edit, :update, :destroy]
+    def new
+      @article = Article.new
+    end
 
-  def index
-    @articles = SortAndFilterData.call(Article.includes(:user), params)
-  end
+    def create
+      @article = current_user.articles.build(article_params)
 
-  def new
-    @article = Article.new
-  end
+      if @article.save
+        flash[:success] = 'Dodano artykuł'
+        redirect_to admin_articles_path
+      else
+        flash[:error] = 'Wystąpił błąd'
+        render 'new'
+      end
+    end
 
-  def create
-    @article = current_user.articles.build(article_params)
+    def update
+      if @article.update_attributes(article_params)
+        flash[:success] = 'Zapisano zmiany'
+        redirect_to admin_articles_path
+      else
+        flash[:error] = 'Wystąpił błąd'
+        render 'edit'
+      end
+    end
 
-    if @article.save
-      flash[:success] = 'Dodano artykuł'
+    def destroy
+      if @article.destroy
+        flash[:success] = 'Usunięto artykuł'
+      else
+        flash[:success] = 'Wystąpił błąd. Spróbuj ponownie później.'
+      end
+
       redirect_to admin_articles_path
-    else
-      flash[:error] = 'Wystąpił błąd'
-      render 'new'
-    end
-  end
-
-  def update
-    if @article.update_attributes(article_params)
-      flash[:success] = 'Zapisano zmiany'
-      redirect_to admin_articles_path
-    else
-      flash[:error] = 'Wystąpił błąd'
-      render 'edit'
-    end
-  end
-
-  def destroy
-    if @article.destroy
-      flash[:success] = 'Usunięto artykuł'
-    else
-      flash[:success] = 'Wystąpił błąd. Spróbuj ponownie później.'
     end
 
-    redirect_to admin_articles_path
-  end
+    private
 
-  private
+    def article_params
+      params.require(:article).permit(:title, :body, :user_id)
+    end
 
-  def article_params
-    params.require(:article).permit(:title, :body, :user_id)
-  end
-
-  def set_article
-    @article = Article.find(params[:id])
+    def set_article
+      @article = Article.find(params[:id])
+    end
   end
 end
