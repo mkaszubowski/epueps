@@ -2,15 +2,22 @@ module Admin
   class LessonsController < BaseController
     include CurrentVideo
 
-    load_and_authorize_resource
+    authorize_resource
+
+    before_action :set_lesson,
+                  only: [:show, :destroy, :sort, :edit, :update]
+    before_action :set_subject,
+                  only: [:show, :new, :create]
+
+    def show
+      @videos = @lesson.videos
+    end
 
     def new
       @lesson = Lesson.new
-      @subject = Subject.find(params[:subject_id])
     end
 
     def create
-      @subject = Subject.find(params[:subject_id])
       @lesson = @subject.lessons.build(lesson_params)
 
       if @lesson.save
@@ -20,10 +27,6 @@ module Admin
         flash[:error] = 'Wystąpił błąd'
         render 'new'
       end
-    end
-
-    def show
-      @videos = @lesson.videos
     end
 
     def destroy
@@ -71,7 +74,10 @@ module Admin
 
     def set_lesson
       @lesson = Lesson.find(params[:id])
-      @subject = @lesson.subject
+    end
+
+    def set_subject
+      @subject = Subject.find(params[:subject_id])
     end
   end
 end
