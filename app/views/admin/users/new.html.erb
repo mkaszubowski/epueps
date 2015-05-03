@@ -8,7 +8,11 @@
           html: { class: 'custom-form' } do |f| %>
       <%= f.input :email, label: 'Email' %>
       <%= f.input :password, label: 'Hasło' %>
-      <%= f.input :admin, label: 'Administrator' %>
+      <%= f.input :role,
+                  collection: User.roles,
+                  as: :radio_buttons,
+                  label: 'Typ użytkownika: ' %>
+
 
       <%= f.submit 'Dodaj', class: 'button button-primary' %>
     <% end %>

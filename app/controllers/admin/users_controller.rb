@@ -36,14 +36,14 @@ module Admin
         redirect_to :back
       else
         flash[:error] = 'Wystąpił błąd, spróbuj ponownie'
-      end  
+      end
     end
 
-    protected 
+    protected
 
     def user_params
-      params.require(:user).permit(:email, :password, :admin)
+      params.require(:user).permit(:email, :password, :role)
     end
-      
+
   end
 end

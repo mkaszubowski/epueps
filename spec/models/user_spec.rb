@@ -19,17 +19,50 @@ RSpec.describe User, :type => :model do
     it { should_not be_valid }
   end
 
-  describe "admin? method" do
-    describe "for non-admin users" do
-      it "should be false" do
-        expect(@user.admin?).not_to eq true
+  describe 'role' do
+    context 'for admin users' do
+      before { @user.role = 'admin' }
+
+      describe '#admin?' do
+        it 'should be true' do
+          expect(@user.admin?).to eq true
+        end
+      end
+
+      describe '#moderator?' do
+        it 'should be false' do
+          expect(@user.moderator?).to eq false
+        end
       end
     end
 
-    describe "for admin users" do
-      before { @user.admin = true }
-      it "should be true" do
-        expect(@user.admin?).to eq true
+    context 'for normal users' do
+      describe 'admin?' do
+        it 'should be false' do
+          expect(@user.admin?).to eq false
+        end
+      end
+
+      describe '#moderator?' do
+        it 'should be false' do
+          expect(@user.moderator?).to eq false
+        end
+      end
+    end
+
+    context 'for moderators' do
+      before { @user.role = 'moderator' }
+
+      describe 'admin?' do
+        it 'should be false' do
+          expect(@user.admin?).to eq false
+        end
+      end
+
+      describe '#moderator?' do
+        it 'should be false' do
+          expect(@user.moderator?).to eq true
+        end
       end
     end
   end

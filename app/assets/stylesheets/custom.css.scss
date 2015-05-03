@@ -70,7 +70,7 @@ h1 {
 /* *************** */
 
 #page-header {
-  
+
 
   background: $header-bg;
   color: #fff;
@@ -86,7 +86,7 @@ h1 {
     &:hover {
       color: darken(#fff, 25%);
     }
-  } 
+  }
 
   ul {
     list-style: none;
@@ -127,7 +127,7 @@ h1 {
 }
 
 /* ******* */
-/* BUTTONS */ 
+/* BUTTONS */
 /* ******* */
 
 .button {
@@ -187,7 +187,7 @@ h1 {
     }
   }
 
-  input:not([type="checkbox"]), textarea {
+  input:not([type="checkbox"]):not([type="radio"]), textarea {
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     width: 100%;
@@ -196,6 +196,16 @@ h1 {
     color: #575757;
     padding: 0 0.5em;
     line-height: 1.5em;
+  }
+
+  .user_role > label {
+    display: block;
+    margin-bottom: 0.5em;
+  }
+
+  span.radio {
+      display: inline;
+      margin-right: 1em;
   }
 
   input[type="text"], input[type="email"], input[type="password"] {
@@ -227,11 +237,11 @@ h1 {
   width: 100%;
   position: fixed;
   left: 0em;
-  top: -3rem; 
+  top: -3rem;
   z-index: 100;
 
   background: #FFFDD5;
-  
+
   .close-div {
     width: 1em;
     height: 1em;
@@ -260,13 +270,13 @@ h1 {
   max-width: 33%;
   display: flex;
   flex-direction: column;
-  
+
   box-shadow: 0px 0px 1px #797979;
   border-radius: 3px;
 
   position: relative;
   padding-bottom: 4em;
-  
+
 
   img {
     height: 200px;
@@ -288,7 +298,7 @@ h1 {
     bottom: 1em;
     color: #fff !important;
   }
-    
+
 }
 
 
@@ -313,13 +323,13 @@ table.primary-table {
       tr {
         background: inherit;
       }
-    } 
+    }
 
     th {
       font-weight: normal;
 
-      
-      a { 
+
+      a {
         color: inherit;
         text-decoration: none;
       }
@@ -352,4 +362,3 @@ table.primary-table {
       padding: 0 1.5em;
     }
   }
-
