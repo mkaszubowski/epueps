@@ -1,6 +1,10 @@
 module Admin
   class VideosController < BaseController
-    load_and_authorize_resource
+
+    authorize_resource
+
+    before_action :set_instance_variables,
+                  only: [:edit, :update, :destroy]
 
     def new
       @video = Video.new
@@ -54,10 +58,10 @@ module Admin
       params.require(:video).permit(:name, :link, :signed_in_only)
     end
 
-    def set_instance_variables  
+    def set_instance_variables
       @video = Video.find(params[:id])
       @lesson = @video.lesson
       @subject = @lesson.subject
-    end 
+    end
   end
 end

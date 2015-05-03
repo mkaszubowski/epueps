@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe 'AdminVideoPages', :type => :request do
-  
+
   let(:admin) { FactoryGirl.create(:admin) }
   let!(:subject1) { FactoryGirl.create(:subject) }
-  let!(:lesson) { FactoryGirl.create(:lesson, 
+  let!(:lesson) { FactoryGirl.create(:lesson,
                                      subject_id: subject1.id) }
 
   let!(:video) { FactoryGirl.create(:video, lesson_id: lesson.id) }
@@ -24,12 +24,12 @@ RSpec.describe 'AdminVideoPages', :type => :request do
     it { should have_content 'Dodaj film' }
     it { should have_content subject1 }
     it { should have_content lesson }
-    it { should have_button 'Dodaj film' } 
+    it { should have_button 'Dodaj film' }
 
 
     describe 'submitting the form' do
 
-      context 'with invalid data' do 
+      context 'with invalid data' do
         before do
           # delete example video
           lesson.videos.first.destroy
@@ -74,12 +74,12 @@ RSpec.describe 'AdminVideoPages', :type => :request do
 
   describe 'deleting video' do
     before do
-      visit admin_subject_lesson_path(subject1, lesson) 
+      visit admin_subject_lesson_path(subject1, lesson)
     end
 
     it 'should change the video count' do
-      
-      expect {click_link 'Usuń', 
+
+      expect {click_link 'Usuń',
         href: admin_subject_lesson_video_path(subject1, lesson, video) }.
         to change(Video, :count).by(-1)
     end
@@ -88,7 +88,7 @@ RSpec.describe 'AdminVideoPages', :type => :request do
 
   describe 'edit page' do
     before do
-      visit edit_admin_subject_lesson_video_path(subject1, 
+      visit edit_admin_subject_lesson_video_path(subject1,
         lesson, video)
     end
 
@@ -101,14 +101,14 @@ RSpec.describe 'AdminVideoPages', :type => :request do
         before do
           fill_in 'Nazwa',  with: ''
           fill_in 'Link',   with: 'invalid'
-          click_button 'Zapisz zmiany' 
+          click_button 'Zapisz zmiany'
         end
 
         it { should have_content 'Wystąpił błąd' }
       end
 
       context 'with valid data' do
-        before do 
+        before do
           fill_in 'Nazwa',  with: 'Updated video'
           fill_in 'Link',   with: 'youtube.com/watch?v=123'
           click_button 'Zapisz zmiany'

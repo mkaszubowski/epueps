@@ -7,7 +7,7 @@ module Admin
     before_action :set_lesson,
                   only: [:show, :destroy, :sort, :edit, :update]
     before_action :set_subject,
-                  only: [:show, :new, :create]
+                  only: [:show, :new, :create, :edit, :update]
 
     def show
       @videos = @lesson.videos
