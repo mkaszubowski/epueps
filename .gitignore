@@ -21,7 +21,7 @@ epueps.sublime-project
 /config/database.yml
 /config/deploy.rb
 .coveralls.yml
-/.capistano
+.capistano/
 /public/uploads
 .tags
 .tags_sorted_by_file
