@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe "AdminPages", :type => :request do
 
   let!(:admin) { FactoryGirl.create(:admin) }
+  let!(:moderator) { FactoryGirl.create(:moderator, email: 'foo@baz.com') }
 
   subject { page }
 
@@ -14,7 +15,18 @@ RSpec.describe "AdminPages", :type => :request do
 
     it { should have_link "Panel administracyjny", href: admin_path }
   end
-  
+
+  describe "site's home page when moderator is signed in" do
+    before do
+      sign_in moderator
+      visit root_path
+    end
+
+    it 'should have admin panel link' do
+      expect(page).to have_link 'Panel administracyjny', href: admin_path
+    end
+  end
+
   describe "index page" do
     context "as not-admin user" do
       before { visit admin_path }
@@ -34,7 +46,7 @@ RSpec.describe "AdminPages", :type => :request do
       it { should have_content "Przedmioty: 0" }
       it { should have_content "Lekcje: 0" }
       it { should have_content "Filmy: 0" }
-      it { should have_content "Użytkownicy: 1" }
+      it { should have_content "Użytkownicy: #{User.count}" }
 
       it 'should have link to subjects page' do
         expect(page).to have_link 'Przedmioty', href: admin_subjects_path

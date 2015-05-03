@@ -1,8 +1,6 @@
 module Admin
   class AdminPagesController < BaseController
     def home
-      authorize! :manage, :all
-
       @subject_count = Subject.all.count
       @lesson_count = Lesson.all.count
       @video_count = Video.all.count

@@ -5,7 +5,10 @@ class Ability
     user ||= User.new
     if user.admin?
       can :manage, :all
-      # can :perform, SortAndFilterData
+    end
+
+    if user.moderator?
+      can :manage, [Subject, Lesson, Video], user_id: user.id
     end
   end
 end

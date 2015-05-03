@@ -9,7 +9,7 @@
       <%= f.input :email, label: 'Email' %>
       <%= f.input :password, label: 'Hasło' %>
       <%= f.input :role,
-                  collection: User.roles,
+                  collection: User.roles.keys,
                   as: :radio_buttons,
                   label: 'Typ użytkownika: ' %>
 

@@ -8,7 +8,7 @@ FactoryGirl.define do
 
   factory :lesson do
     name          'Lesson'
-    description   'Lorem ipsum'       
+    description   'Lorem ipsum'
   end
 
   factory :video do
@@ -22,6 +22,10 @@ FactoryGirl.define do
 
     factory :admin do
       role        'admin'
+    end
+
+    factory :moderator do
+      role        'moderator'
     end
   end
 
