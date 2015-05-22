@@ -8,7 +8,9 @@ class Ability
     end
 
     if user.moderator?
-      can :manage, [Subject, Lesson, Video], user_id: user.id
+      # TODO: allow to modify only his/her own content
+      can :manage, :all
+      can :read, :all
     end
   end
 end

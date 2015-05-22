@@ -1,5 +1,5 @@
 <tr>
-  <td><%= link_to subject.name, 
+  <td><%= link_to subject.name,
           admin_subject_path(subject) %></td>
   <td><%= subject.lessons_count %></td>
   <td><%= subject.created_at.strftime("%Y-%m-%d") %></td>
@@ -11,12 +11,13 @@
   <% end %>
   <td>
     <!-- TODO: Add confirmation -->
-    <%= link_to "Usuń", 
-                admin_subject_path(subject), 
-                method: :delete %>
-    <%= link_to "Edytuj", 
-                edit_admin_subject_path(subject) %>
+
+    <%= link_to "Usuń",
+                admin_subject_path(subject),
+                method: :delete if can? :destroy, Subject %>
+    <%= link_to "Edytuj",
+                edit_admin_subject_path(subject) if can? :edit, Subject %>
     <%= link_to "Opublikuj",
-          publish_admin_subject_path(subject) unless  subject.published? ||                                          subject.deleted? %>
+          publish_admin_subject_path(subject) unless subject.published? || subject.deleted? %>
   </td>
 </tr>

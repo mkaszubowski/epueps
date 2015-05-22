@@ -9,7 +9,7 @@ class SubjectsController < ApplicationController
       format.html
       format.js
     end
-
+    
   end
 
   def show

@@ -3,10 +3,12 @@
 <section class="admin-panel">
   <h1>Wszystkie artykuły</h1>
 
-  <div class="article-actions">
-    <%= link_to 'Nowy artykuł', new_admin_article_path,
-          class: 'button button-secondary' %>
-  </div>
+  <% if can? :create, Article %>
+    <div class="article-actions">
+      <%= link_to 'Nowy artykuł', new_admin_article_path,
+            class: 'button button-secondary' %>
+    </div>
+  <% end %>
 
   <table class="primary-table">
     <thead>

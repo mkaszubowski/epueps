@@ -3,11 +3,12 @@
 <section class = "users-index admin-panel">
   <h1>Wszyscy użytkownicy</h1>
 
-  <div class="user-actions">
-    <%= link_to 'Dodaj użytkownika', new_admin_user_path,
-          class: 'button button-secondary' %>
-  </div>
-
+  <% if can? :create, User %>
+    <div class="user-actions">
+      <%= link_to 'Dodaj użytkownika', new_admin_user_path,
+            class: 'button button-secondary' %>
+    </div>
+  <% end %>
 
   <section class="search">
     <%= form_tag admin_users_path, method: :get do %>
@@ -17,7 +18,7 @@
 
     <% unless @search_params.nil? %>
       <div class="search-params">
-        Kryteria: <%= @search_params %> | 
+        Kryteria: <%= @search_params %> |
         <%= link_to "Powrót", admin_users_path %>
       </div>
     <% end %>
