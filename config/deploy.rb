@@ -48,9 +48,11 @@ namespace :deploy do
     end
   end
 
-  desc 'Restarting mod_rails with restart.txt'
+  desc 'Restart application'
   task :restart do
-    run 'touch #{current_path}/tmp/restart.txt'
+    on roles(:app), in: :sequence, wait: 5 do
+      execute :touch, release_path.join('tmp/restart.txt')
+    end
   end
 
 end
