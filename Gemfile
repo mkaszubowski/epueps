@@ -42,6 +42,8 @@ gem 'ckeditor'
 gem 'mini_magick'
 gem 'acts_as_list'
 
+gem 'react-rails', '~> 1.0'
+
 gem 'coveralls', require: false
 
 gem 'font-awesome-rails'
