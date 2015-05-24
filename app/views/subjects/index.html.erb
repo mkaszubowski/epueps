@@ -5,14 +5,14 @@
 	<h1 class = "center">Wszystkie kursy</h1>
 
 	<div class="subject-scope-options">
-		<%= link_to "Popularne", 
-								subjects_path(params: {order: "popular"}), 
+		<%= link_to "Popularne",
+								subjects_path(params: {order: "popular"}),
 								remote: true,
 								id: "scope-popular",
 								class: (@scope == "popular" ? "active" : nil)
-								%> / 
-		<%= link_to "Najnowsze", 
-								subjects_path(params: {order: "recent"}), 
+								%> /
+		<%= link_to "Najnowsze",
+								subjects_path(params: {order: "recent"}),
 								remote: true,
 								id: "scope-recent",
 								class: (@scope == "recent" ? "active" : nil)
@@ -20,6 +20,7 @@
 	</div>
 
 	<div class = "subject-catalog">
-		<%= render @subjects %>
+		<%= react_component 'Subjects' %>
+		<!-- <%= render @subjects %> -->
 	</div>
 </div>

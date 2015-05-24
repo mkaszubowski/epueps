@@ -13,28 +13,25 @@
 
 }
 
-.subject-catalog {
+
+.subjects {
 	text-align: center;
+	box-sizing: border-box;
+	margin-bottom: 2em;
 
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 
-	>div {
-		box-sizing: border-box;
-		width: 31.5%;
-		margin-bottom: 2em;
+	border: 0;
 
-		border: 0;
+	.description {
+		margin-bottom: 1em;
+	}
 
-		.description {
-			margin-bottom: 1em;
-		}
-
-		img {
-			height: 200px;
-			max-width: 100%;
-		}
+	img {
+		height: 200px;
+		max-width: 100%;
 	}
 }
 

@@ -23,3 +23,29 @@ R = React.DOM
           id: 'subject-' + this.props.subject.id
         }
         'Zobacz kurs')
+
+
+@Subjects  = React.createClass
+  getInitialState: ->
+    return { subjects: [] }
+  loadSubjectsFromServer: ->
+    url = 'subjects'
+    if @props.hasOwnProperty('limit')
+      url += '?limit=' + @props.limit
+
+    $.ajax
+      url: url
+      dataType: 'JSON'
+      success: (subjects) =>
+        @setState({subjects: subjects})
+        console.log('success')
+      error: (xhr, status, error) ->
+        console.log(error.toString())
+  componentDidMount: ->
+    @loadSubjectsFromServer()
+
+  render: ->
+    R.div
+      className: 'subjects'
+      for subject in @state.subjects
+        React.createElement Subject, subject: subject

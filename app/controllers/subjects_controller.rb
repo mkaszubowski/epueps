@@ -3,19 +3,23 @@ class SubjectsController < ApplicationController
   include CurrentVideo
 
   def index
-    @subjects = ShowAllSubjects.call(params, cookies)
+    if params[:limit].present?
+      @subjects = Subject.published.limit(params[:limit])
+    else
+      @subjects = Subject.published
+    end
 
     respond_to do |format|
       format.html
-      format.js
+      format.json { render json: @subjects }
     end
-    
+
   end
 
   def show
   	@subject = Subject.find(params[:id])
   	@lessons = @subject.lessons.includes(:videos).all
-    
+
     # TODO: Load from user profile using hstore
 
     @current_video = current_video(@subject)
@@ -24,8 +28,8 @@ class SubjectsController < ApplicationController
       @current_lesson = @current_video.lesson
 
       unless @current_video.lesson.subject == @subject
-        raise 'WrongVideoId' 
-      end 
+        raise 'WrongVideoId'
+      end
 
       set_current_video(@subject, @current_video)
     # else
@@ -37,7 +41,7 @@ class SubjectsController < ApplicationController
 
   	respond_to do |format|
   		format.html
-      format.js 
+      format.js
   	end
   end
 
