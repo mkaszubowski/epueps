@@ -1,11 +1,2 @@
-<article class="subject">
-	 <h2><%= link_to subject.name, subject_path(subject) %></h2> 
-	<%= image_tag subject.image_url.to_s %>
-	<section class = "description">
-		<%= truncate 	sanitize(subject.description), 
-									length: 200,
-									separatior: ' '  %>
-	</section>	
-
-	<%= link_to "Zobacz kurs", subject_info_path(subject), class: "button button-primary", id: "subject-#{subject.id}" %>
-</article>
+<%= react_component 'Subject',
+		{ subject: subject, path: subject_path(subject) } %>

@@ -4,13 +4,13 @@
 
       <h1>Witamy<br />w platformie ePUEPS</h1>
 
-      <%= link_to 'Przeglądaj kursy', 
-                  subjects_path, 
+      <%= link_to 'Przeglądaj kursy',
+                  subjects_path,
                   class: 'button button-secondary' %>
       <% if user_signed_in? %>
         <%= link_to 'O platformie', '#', class: 'button button-primary' %>
       <% else %>
-        <%= link_to 'Zaloguj się', 
+        <%= link_to 'Zaloguj się',
                   new_user_session_path,
                   class: 'button button-primary' %>
       <% end %>
@@ -26,7 +26,7 @@
       <%= render @subjects %>
 
     </div>
-    <%= link_to 'Wszystkie kursy', 
+    <%= link_to 'Wszystkie kursy',
                 subjects_path,
                 class: 'button button-secondary' %>
   </section>
@@ -41,8 +41,8 @@
       <%= link_to 'Wszystkie artykuły',
                   articles_path,
                   class: 'button button-secondary' %>
-        
+
     </section>
   <% end %>
-  
+
 </div>
