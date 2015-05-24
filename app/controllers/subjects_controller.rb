@@ -4,9 +4,9 @@ class SubjectsController < ApplicationController
 
   def index
     if params[:limit].present?
-      @subjects = Subject.published.limit(params[:limit])
+      @subjects = Subject.published.send(scope).limit(params[:limit])
     else
-      @subjects = Subject.published
+      @subjects = Subject.published.send(scope)
     end
 
     respond_to do |format|
@@ -54,6 +54,10 @@ class SubjectsController < ApplicationController
 
     def subjects_scope
       params[:order] || cookies[:subject_scope] || "recent"
+    end
+
+    def scope
+      params[:scope].try(:to_sym) || :popular
     end
 
     def subject_scope=(scope)

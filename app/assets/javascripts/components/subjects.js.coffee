@@ -27,25 +27,50 @@ R = React.DOM
 
 @Subjects  = React.createClass
   getInitialState: ->
-    return { subjects: [] }
-  loadSubjectsFromServer: ->
-    url = 'subjects'
+    return {
+      subjects: [],
+      scope: @props.scope || 'popular'
+      }
+  loadSubjectsFromServer: (scope)->
+    url = 'subjects?'
     if @props.hasOwnProperty('limit')
-      url += '?limit=' + @props.limit
+      url += 'limit=' + @props.limit + '&'
+
+    url += 'scope=' + scope
 
     $.ajax
       url: url
       dataType: 'JSON'
       success: (subjects) =>
         @setState({subjects: subjects})
-        console.log('success')
       error: (xhr, status, error) ->
         console.log(error.toString())
+  loadRecentSubjects: ->
+    @loadSubjectsFromServer('recent')
+  loadPopularSubjects: ->
+    @loadSubjectsFromServer('popular')
+
+  handlePopularClick: (e) ->
+    e.preventDefault()
+    @loadPopularSubjects()
+
+  handleRecentClick: (e) ->
+    e.preventDefault()
+    @loadRecentSubjects()
+
+
   componentDidMount: ->
-    @loadSubjectsFromServer()
+    @loadSubjectsFromServer(@props.scope || 'popular')
 
   render: ->
     R.div
-      className: 'subjects'
-      for subject in @state.subjects
-        React.createElement Subject, subject: subject
+      className: 'subject-section'
+      R.div
+        className: 'subject-scope-options'
+        R.a({href: '#', onClick: @handlePopularClick}, 'Popularne ')
+        '/'
+        R.a({href: '#', onClick: @handleRecentClick}, ' Najnowsze')
+      R.div
+        className: 'subjects'
+        for subject in @state.subjects
+          React.createElement Subject, subject: subject
