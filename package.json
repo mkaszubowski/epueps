@@ -5,6 +5,9 @@
     "browserify-incremental": "^1.4.0",
     "reactify": "^0.17.1"
   },
+  "dependencies": {
+    "coffeeify": "~> 0.6"
+  },
   "engines": {
     "node": ">=0.10.0"
   }
