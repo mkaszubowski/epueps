@@ -43,6 +43,7 @@ gem 'mini_magick'
 gem 'acts_as_list'
 
 gem 'react-rails', '~> 1.0'
+gem 'browserify-rails', '~> 0.9'
 
 gem 'coveralls', require: false
 
