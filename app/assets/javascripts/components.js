@@ -1,1 +1,3 @@
-//= require_tree ./components
+React = require('react');
+
+Subjects = require('./components/subjects');

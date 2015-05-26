@@ -1,6 +1,8 @@
+React = require('react')
+
 R = React.DOM
 
-@Subject = React.createClass
+Subject = React.createClass
   render: ->
     if this.props.subject.description.length > 200
       description = this.props.subject.description.substring(0, 200) + '...'
@@ -25,7 +27,7 @@ R = React.DOM
         'Zobacz kurs')
 
 
-@Subjects  = React.createClass
+Subjects  = React.createClass
   getInitialState: ->
     return {
       subjects: [],
@@ -74,3 +76,5 @@ R = React.DOM
         className: 'subjects'
         for subject in @state.subjects
           React.createElement Subject, subject: subject
+
+module.exports = Subjects
