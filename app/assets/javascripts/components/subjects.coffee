@@ -1,11 +1,36 @@
-React = require('react')
-$ = require('jquery')
-
-Subject = require('./subject.js.jsx.coffee')
+# React = require('react')
+# $ = require('jquery')
+#
+# Subject = require('./subject.js.jsx.coffee')
 
 R = React.DOM
 
-Subjects = React.createClass
+@Subject = React.createClass
+  render: ->
+    if this.props.subject.description.length > 200
+      description = this.props.subject.description.substring(0, 200) + '...'
+    else
+      description = this.props.subject.description
+
+    R.article
+      className: 'subject'
+      R.h2(null, R.a({href: this.props.path}, this.props.subject.name ))
+      R.img({src: this.props.subject.image.url, alt: this.props.subject.name})
+
+      R.section
+        className: 'description'
+        description
+
+      R.a(
+        {
+          href: this.props.path + '/info',
+          className: 'button button-primary',
+          id: 'subject-' + this.props.subject.id
+        }
+        'Zobacz kurs')
+
+
+@Subjects = React.createClass
   getInitialState: ->
     return {
       subjects: [],
@@ -52,4 +77,4 @@ Subjects = React.createClass
         for subject in @state.subjects
           React.createElement Subject, subject: subject
 
-module.exports = Subjects
+# module.exports = Subjects
