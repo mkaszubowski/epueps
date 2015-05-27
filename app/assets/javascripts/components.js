@@ -1,3 +1,4 @@
 React = require('react');
 
-Subjects = require('./components/subjects');
+Subject = require('./components/subject.js.jsx.coffee');
+Subjects = require('./components/subjects.js.jsx.coffee');
