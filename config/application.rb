@@ -34,9 +34,14 @@ module Epueps
 
     config.browserify_rails.commandline_options = [
         '-t [ coffeeify --extension .coffee ]', # coffeescript support
-        '-t [ reactify --extension .jsx.coffee ]', # react/jsx support
-        '--extension .js.jsx.coffee' # to be able to remove extension from require
+        '-t [ reactify --extension .jsx.coffee --extension .jsx]', # react/jsx support
+        '--extension .coffee', # to be able to remove extension from require
+
     ]
+
+    # config.browserify_rails.commandline_options = [
+    #   '-t coffee-reactify --extension=".coffee"'
+    # ]
 
     config.active_record.raise_in_transactional_callbacks = true
   end

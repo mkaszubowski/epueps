@@ -1,4 +1,5 @@
 React = require('react')
+$ = require('jquery')
 
 R = React.DOM
 
