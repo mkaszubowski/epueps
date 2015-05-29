@@ -17,7 +17,7 @@
 //= require ckeditor/init
 //= require_tree .
 
-// $ = jQuery = require('jquery');
+$ = jQuery = require('jquery');
 
 $(document).ready(function() {
   // TODO: Fix close-div button
