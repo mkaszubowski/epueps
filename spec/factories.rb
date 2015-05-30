@@ -1,4 +1,11 @@
 FactoryGirl.define do
+
+  factory :contact_email do
+    name "name"
+    email "test@example.com"
+    message "message"
+  end
+
   factory :subject do
     name          'Subject'
     image_name    'subject.jpg'
