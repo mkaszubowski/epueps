@@ -1,3 +1,3 @@
 React = require('react');
 
-Test = require('./components/test');
+window.Test = require('./components/test');
