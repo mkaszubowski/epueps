@@ -59,6 +59,8 @@ gem 'capistrano-npm'
 
 gem 'cancancan', '~> 1.10'
 
+gem 'rails-i18n', '~> 4.0.0'
+
 group :doc do
   gem 'sdoc', '0.3.20', require: false
 end
