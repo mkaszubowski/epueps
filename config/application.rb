@@ -32,16 +32,13 @@ module Epueps
 
     config.assets.precompile += %w( ckeditor/* )
 
-    config.browserify_rails.commandline_options = [
-        '-t [ coffeeify --extension .coffee ]', # coffeescript support
-        '-t [ reactify --extension .jsx.coffee --extension .jsx]', # react/jsx support
-        '--extension .coffee', # to be able to remove extension from require
-
-    ]
-
     # config.browserify_rails.commandline_options = [
-    #   '-t coffee-reactify --extension=".coffee"'
+    #     '-t [ coffeeify --extension .coffee ]', # coffeescript support
+    #     '-t [ reactify --extension .jsx.coffee --extension .jsx]', # react/jsx support
+    #     '--extension .coffee', # to be able to remove extension from require
     # ]
+
+    config.browserify_rails.commandline_options = "-t reactify --extension=\".js.jsx\""
 
     config.active_record.raise_in_transactional_callbacks = true
   end
