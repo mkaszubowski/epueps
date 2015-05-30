@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require react_ujs
@@ -18,6 +19,8 @@
 //= require_tree .
 
 $ = jQuery = require('jquery');
+
+
 
 $(document).ready(function() {
   // TODO: Fix close-div button
