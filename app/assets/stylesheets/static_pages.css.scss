@@ -14,6 +14,7 @@ $text-color: #575757;
 	background-position: center;
 
 	margin-top: -2em;
+	margin-bottom: 2em;
 
 	color: #fff;
 
@@ -34,4 +35,8 @@ $text-color: #575757;
 
 #home-articles {
 	padding-top: 2em;
+
+	h1 {
+		margin-bottom: 1.25em;
+	}
 }
