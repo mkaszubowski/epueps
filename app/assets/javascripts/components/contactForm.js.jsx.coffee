@@ -39,7 +39,7 @@ ContactForm = React.createClass
       data:
         contact_email: @state
       success: (contact_email) =>
-        clearFields()
+        @clearFields()
       error: (xhr, status, error) =>
         console.log(status + " " + error.toString())
         console.log(xhr)
