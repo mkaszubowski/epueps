@@ -6,6 +6,7 @@ class ContactEmailsController < ApplicationController
     @contact_email = ContactEmail.new(contact_email_params)
 
     if @contact_email.save
+      ContactEmailSender.send(@contact_email)
       render json: @contact_email
     else
       render json: @contact_email.errors, status: :bad_request
