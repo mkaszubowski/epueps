@@ -5,7 +5,11 @@ Rails.application.routes.draw do
 
   resources :subjects, only: [:index, :show] do
     get 'info'
-  end 
+  end
+  resources :articles, only: [:new, :create, :show, :index]
+  resources :contact_emails, only: [:create]
+
+  get '/contact', to: 'contact_emails#new'
 
   namespace :admin do
     resources :users
@@ -16,7 +20,7 @@ Rails.application.routes.draw do
 
       resources :lessons, except: [:index] do
         get 'sort', to: 'lessons#sort', on: :member
-        resources :videos, except: [:show, :index] 
+        resources :videos, except: [:show, :index]
       end
     end
 
@@ -25,6 +29,5 @@ Rails.application.routes.draw do
     match '/', to: 'admin_pages#home', via: :get
   end
 
-  resources :articles, only: [:new, :create, :show, :index]
 
 end
