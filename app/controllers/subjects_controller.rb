@@ -13,12 +13,11 @@ class SubjectsController < ApplicationController
       format.html
       format.json { render json: @subjects }
     end
-
   end
 
   def show
-  	@subject = Subject.find(params[:id])
-  	@lessons = @subject.lessons.includes(:videos).all
+    @subject = Subject.find(params[:id])
+    @lessons = @subject.lessons.includes(:videos).all
 
     # TODO: Load from user profile using hstore
 
@@ -37,12 +36,12 @@ class SubjectsController < ApplicationController
     end
 
     # TODO: Popularity based on cookies
-  	@subject.update_attribute(:popularity, @subject.popularity + 1)
+    @subject.update_attribute(:popularity, @subject.popularity + 1)
 
-  	respond_to do |format|
-  		format.html
+    respond_to do |format|
+      format.html
       format.js
-  	end
+    end
   end
 
   def info
@@ -52,23 +51,23 @@ class SubjectsController < ApplicationController
 
   private
 
-    def subjects_scope
-      params[:order] || cookies[:subject_scope] || "recent"
-    end
+  def subjects_scope
+    params[:order] || cookies[:subject_scope] || "recent"
+  end
 
-    def scope
-      params[:scope].try(:to_sym) || :popular
-    end
+  def scope
+    params[:scope].try(:to_sym) || :popular
+  end
 
-    def subject_scope=(scope)
-      cookies[:subject_scope] = scope
-    end
+  def subject_scope=(scope)
+    cookies[:subject_scope] = scope
+  end
 
-    def current_lesson
-      cookies["s-#{@subject.id}_lesson_id"]
-    end
+  def current_lesson
+    cookies["s-#{@subject.id}_lesson_id"]
+  end
 
-    def set_current_lesson (lesson)
-      cookies["s-#{@subject.id}_lesson_id"] = lesson.id
-    end
+  def set_current_lesson (lesson)
+    cookies["s-#{@subject.id}_lesson_id"] = lesson.id
+  end
 end
