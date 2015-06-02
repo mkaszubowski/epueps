@@ -5,6 +5,7 @@ R = React.DOM
 
 Subject = React.createClass
   render: ->
+    path = '/subjects/' + this.props.subject.slug
     if this.props.subject.description.length > 200
       description = this.props.subject.description.substring(0, 200) + '...'
     else
@@ -12,7 +13,7 @@ Subject = React.createClass
 
     R.article
       className: 'subject'
-      R.h2(null, R.a({href: this.props.path}, this.props.subject.name ))
+      R.h2(null, R.a({href: path}, this.props.subject.name ))
       R.img({src: this.props.subject.image.url, alt: this.props.subject.name})
 
       R.section
@@ -21,7 +22,7 @@ Subject = React.createClass
 
       R.a(
         {
-          href: this.props.path + '/info',
+          href: path + '/info',
           className: 'button button-primary',
           id: 'subject-' + this.props.subject.id
         }
