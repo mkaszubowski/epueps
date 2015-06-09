@@ -1,0 +1,41 @@
+@import 'vars';
+
+.contact-emails-controller {
+
+  .form {
+    width: 40%;
+    float: right;
+    margin-top: 30px;
+    z-index: 999;
+    .custom-form {
+      background: #F5F5F5;
+      padding: 25px;
+      display: block;
+      float: right;
+      width: 100%;
+    }
+  }
+  #map-canvas {
+    position: absolute;
+    top: $header-height;
+    left: 0;
+    width: 100%;
+    height: 800px;
+    z-index: -1;
+
+    border: 1px solid #dfdfdf;
+  }
+
+  .info-window {
+    display: block;
+    width: 45%;
+    float: right;
+    margin-top: 20px;
+    border: 1px solid #dfdfdf;
+    background: #fff;
+    height: 250px;
+
+    h2 {
+    }
+  }
+}

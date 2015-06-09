@@ -36,4 +36,5 @@ $(document).ready(function() {
 
   $(".lesson>.lesson-videos").hide();
   $(".lesson.active>.lesson-videos").show();
+
 });

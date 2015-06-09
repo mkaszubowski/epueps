@@ -47,6 +47,7 @@ ContactForm = React.createClass
     R.form
       onSubmit: @sendContactEmail,
       className: 'custom-form'
+      R.h1(null, 'Kontakt')
       R.label(for: 'name', 'Imię:')
       R.input(type: 'text', name: 'name', value: @state.name, onChange: @handleNameChange)
       R.label(for: 'email', 'Email:')
