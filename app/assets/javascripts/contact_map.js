@@ -15,6 +15,8 @@ var ready = function() {
     map: map,
     title: 'Hello World!'
   });
+
+  console.log('ready-map');
 };
 
 $(document).ready(ready);
