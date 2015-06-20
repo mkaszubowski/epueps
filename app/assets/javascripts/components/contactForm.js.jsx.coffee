@@ -39,8 +39,8 @@ ContactForm = React.createClass
       data:
         contact_email: @state
       beforeSend: (xhr) ->
-        token = $("meta[name='csrf-token']").attr("content");
-        xhr.setRequestHeader("X-CSRF-Token", @getCSRFTokenValue());
+        token = $("meta[name='csrf-token']").attr("content")
+        xhr.setRequestHeader("X-CSRF-Token", token);
       success: (contact_email) =>
         @clearFields()
       error: (xhr, status, error) =>
