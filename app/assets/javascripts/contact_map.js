@@ -1,8 +1,7 @@
 $ = require('jquery');
 
-if($('#map-canvas').length > 0) {
-
-  var ready = function() {
+var ready = function() {
+  if($('#map-canvas').length > 0) {
     var mapOptions = {
       center: { lat: 52.397036, lng: 16.965626},
       zoom: 14,
@@ -20,8 +19,7 @@ if($('#map-canvas').length > 0) {
 
     console.log('ready-map');
   };
-
-  $(document).ready(ready);
-  $(document).on('page:load', ready);
-
 }
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
