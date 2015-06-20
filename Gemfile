@@ -14,7 +14,6 @@ group :development do
   gem 'binding_of_caller'
   gem 'meta_request'
   gem 'guard-rspec', require: false
-
 end
 
 group :test do
@@ -41,6 +40,8 @@ gem 'carrierwave'
 gem 'ckeditor'
 gem 'mini_magick'
 gem 'acts_as_list'
+
+gem 'rollbar', '~> 1.5.3'
 
 gem 'react-rails', '~> 1.0'
 gem 'browserify-rails', '~> 0.9'
