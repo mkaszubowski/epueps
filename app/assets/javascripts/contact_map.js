@@ -1,4 +1,4 @@
-$ = jQuery = require('jquery');
+$ = require('jquery');
 
 var ready = function() {
   var mapOptions = {
