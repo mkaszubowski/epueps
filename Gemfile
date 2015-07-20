@@ -40,6 +40,7 @@ gem 'carrierwave'
 gem 'ckeditor'
 gem 'mini_magick'
 gem 'acts_as_list'
+gem 'slim-rails'
 
 gem 'rollbar', '~> 1.5.3'
 
