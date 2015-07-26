@@ -23,6 +23,6 @@
 <!-- TODO: Make flash position: fixed and auto hide -->
 <%= render 'layouts/flash_messages' %>
 
-<% unless @splash %>
+<% unless @splash || no_container?(yield(:no_container)) %>
 	<div class = 'container'>
 <% end %>
