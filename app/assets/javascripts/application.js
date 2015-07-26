@@ -10,6 +10,10 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+//= require jquery
+//= require jquery_ujs
+
 //= require turbolinks
 //= require react_ujs
 //= require components
@@ -21,9 +25,6 @@
 //= require subjects
 //= require users
 //= require_tree ./admin
-
-$ = require('jquery');
-//= require jquery_ujs
 
 
 
