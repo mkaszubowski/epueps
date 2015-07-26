@@ -15,6 +15,7 @@
 //= require components
 //= require ckeditor/init
 
+//= require get_image_lightness
 //= require contact_map
 //= require static_pages
 //= require subjects
