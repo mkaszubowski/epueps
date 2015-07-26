@@ -64,6 +64,10 @@ class Subject < ActiveRecord::Base
     intro_video_link.gsub('watch?v=', 'embed/') + video_params
   end
 
+  def videos_count
+    lessons.map { |lesson| lesson.videos.count }.reduce(:+)
+  end
+
   protected
 
   def validate_link

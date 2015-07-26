@@ -1,0 +1,36 @@
+- provide :title, "#{@subject.name} - informacje"
+- provide :no_container, true
+
+.subject-info-header
+  .subject-image
+    = image_tag @subject.image_url(:cover)
+  .container
+    h1
+      = @subject.name
+
+.container
+  .row
+    section.summary.col-md-12
+      span
+        <i class="fa fa-list"></i>
+        = pluralize_lessons_pl(@subject.lessons_count)
+      span
+        <i class="fa fa-youtube-play"></i>
+        = pluralize_videos_pl(@subject.videos_count)
+
+  .row
+    .subject-info-content
+      section.description.col-md-8
+        section
+          h2 Opis przedmiotu
+          p= @subject.description
+        section
+          h2 Zapowiedź
+          - unless @subject.embed_intro_video_link.nil?
+            section.intro-video-container
+              iframe class="intro-video" src=@subject.embed_intro_video_link allowfullscreen=true
+        = link_to "Zacznij kurs", subject_path(@subject), class: "button button-primary"
+      section.table-of-contents.col-md-4
+        h2 Dostępne lekcje
+        = render partial: 'subjects/table_of_contents', locals: {lessons: @lessons, subject: @subject}
+        = link_to "Zacznij kurs", subject_path(@subject), class: "button button-primary"

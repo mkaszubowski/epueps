@@ -6,203 +6,167 @@
 @import "vars";
 
 .subject-index {
-	h1 {
-		margin-bottom: 0;
-	}
+  h1 {
+    margin-bottom: 0;
+  }
 }
 
 
 .subjects {
-	text-align: center;
-	box-sizing: border-box;
-	margin-bottom: 2em;
+  text-align: center;
+  box-sizing: border-box;
+  margin-bottom: 2em;
 
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 
-	border: 0;
+  border: 0;
 
-	.description {
-		margin-bottom: 1em;
-	}
+  .description {
+    margin-bottom: 1em;
+  }
 
-	img {
-		height: 200px;
-		max-width: 100%;
-	}
+  img {
+    height: 200px;
+    max-width: 100%;
+  }
 }
 
 .subject-scope-options {
-	text-align: center;
-	margin-bottom: 2rem;
-	a {
-		color: #575757;
-		font-weight: 100;
-		text-decoration: none;
+  text-align: center;
+  margin-bottom: 2rem;
+  a {
+    color: #575757;
+    font-weight: 100;
+    text-decoration: none;
 
-	}
-	a.active {
-		color: darken(#575757, 25%);
-		font-weight: 300;
-	}
+  }
+  a.active {
+    color: darken(#575757, 25%);
+    font-weight: 300;
+  }
 }
 
 .lesson-menu {
-	display: flex;
-	flex-direction: column;
-	border: 1px solid #d1d1d1;
-	width: 25%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #d1d1d1;
+  width: 25%;
 
-	margin-bottom: 2em;
-	float: left;
+  margin-bottom: 2em;
+  float: left;
 
-	.lesson-videos {
-		list-style: none;
-		line-height: 1.5em;
-	}
+  .lesson-videos {
+    list-style: none;
+    line-height: 1.5em;
+  }
 
-	.lesson {
-		flex: 1;
-		display: block;
+  .lesson {
+    flex: 1;
+    display: block;
 
-		a {
-			color: #ddd;
-			text-decoration: none;
-			margin-left: 1rem;
-		}
+    a {
+      color: #ddd;
+      text-decoration: none;
+      margin-left: 1rem;
+    }
 
 
 
-		h2 {
-			line-height: 2.5rem;
-			width: 100%;
-			color: #fff;
-			border-left: 7px solid #008f9c;
-			box-sizing: border-box;
-			font-size: 1.1em;
+    h2 {
+      line-height: 2.5rem;
+      width: 100%;
+      color: #fff;
+      border-left: 7px solid #008f9c;
+      box-sizing: border-box;
+      font-size: 1.1em;
 
-			transition: 0.3s;
+      transition: 0.3s;
 
-			background: #2C3B4B;
-			&.color-1 {
-				background: $lesson-color-1;
-				a { color: $text-color; }
-			}
-			&.color-2 {
-				background: $lesson-color-2;
-				a { color: #fff; }
-			}
-			&.color-3 {
-				background: $lesson-color-3;
-				// a { color: #fff; }
-			}
+      background: #2C3B4B;
+      &.color-1 {
+        background: $lesson-color-1;
+        a { color: $text-color; }
+      }
+      &.color-2 {
+        background: $lesson-color-2;
+        a { color: #fff; }
+      }
+      &.color-3 {
+        background: $lesson-color-3;
+        // a { color: #fff; }
+      }
 
-			&:hover {
-				border-left: 14px solid #008f9c;
-			}
-		}
+      &:hover {
+        border-left: 14px solid #008f9c;
+      }
+    }
 
-		border-bottom: 1px solid #D1D1D1;
+    border-bottom: 1px solid #D1D1D1;
 
-		&:nth-child(odd) {
-			background: darken(#E5EBEC, 2%);
-		}
-		&:last-child {
-			border-bottom: 0;
-		}
+    &:nth-child(odd) {
+      background: darken(#E5EBEC, 2%);
+    }
+    &:last-child {
+      border-bottom: 0;
+    }
 
-		img {
-			width: 5rem;
-			float: left;
-			margin-right: 0.5em;
-		}
+    img {
+      width: 5rem;
+      float: left;
+      margin-right: 0.5em;
+    }
 
-		//background: #4d3;
-	}
+    //background: #4d3;
+  }
 
-	.lesson.active {
-		background: #e4e4e4;
-	}
+  .lesson.active {
+    background: #e4e4e4;
+  }
 }
 
 .lesson-videos {
 
-	padding: 0.5rem 0;
-	a {
-		color: #343434 !important;
-	}
+  padding: 0.5rem 0;
+  a {
+    color: #343434 !important;
+  }
 }
 
 .video {
-	width: 73%;
-	float: right;
+  width: 73%;
+  float: right;
 
 
 }
 
 .main-subject-content{
-	&:after {
-		content: '';
-		display: block;
-		clear: both;
-	}
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
 
-	margin-bottom: 2em;
+  margin-bottom: 2em;
 }
 
 .subject-page {
 
-	.subject-description {
-		width: 48%;
-		float: left;
-	}
-	.lesson-description {
-		width: 48%;
-		float: right;
-	}
+  .subject-description {
+    width: 48%;
+    float: left;
+  }
+  .lesson-description {
+    width: 48%;
+    float: right;
+  }
 
-	&:after {
-		content: '';
-		display: block;
-		clear: both;
-	}
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
 }
 
 
-.subject-info-content {
-	text-align: center;
-	width: 90%;
-
-	img {
-		width: 50%;
-		margin: 0 auto;
-		margin-bottom: 2em;
-	}
-	.lesson>img {
-		display: none;
-	}
-
-	.intro-video-container {
-		position: relative;
-		height: 0px;
-		padding-top: 30px;
-		padding-bottom: 40%;
-		overflow: hidden;
-		background: #E5EBEC;
-		width: 60%;
-		margin: 0 auto;
-		margin-bottom: 2em;
-
-		.intro-video {
-			position: absolute;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
-			border: 0;
-		}
-
-	}
-
-}
