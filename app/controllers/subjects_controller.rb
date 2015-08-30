@@ -46,7 +46,7 @@ class SubjectsController < ApplicationController
 
   def info
     @subject = Subject.find(params[:subject_id])
-    @lessons = @subject.lessons.all
+    @lessons = @subject.lessons.includes(:videos)
   end
 
   private
