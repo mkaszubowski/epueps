@@ -45,6 +45,7 @@ module ApplicationHelper
   end
 
   def pluralize_lessons_pl(count)
+    return '' unless count
     return "#{count} Lekcja" if count == 1
     return "#{count} Lekcji" if (12..14).include? count
     return "#{count} Lekcje" if (2..4).include? count % 10
@@ -52,11 +53,12 @@ module ApplicationHelper
   end
 
   def pluralize_videos_pl(count)
+    return '' unless count
     return "#{count} Film" if count == 1
     return "#{count} Filmów" if (12..14).include? count
     return "#{count} Filmy" if (2..4).include? count % 10
     "#{count} Filmów"
   end
 
-  
+
 end

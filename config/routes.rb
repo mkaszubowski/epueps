@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :subjects, only: [:index, :show] do
     get 'info'
+    resources :lessons, only: [:index]
   end
   resources :articles, only: [:new, :create, :show, :index]
   resources :contact_emails, only: [:create]

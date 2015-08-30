@@ -4,7 +4,8 @@ class LessonsController < ApplicationController
   before_action :set_subject
 
   def index
-    @lessons = @subject.lessons.includes(:videos)
+    lessons = @subject.lessons.includes(:videos)
+    render json: lessons
   end
 
   protected

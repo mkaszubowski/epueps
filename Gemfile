@@ -65,6 +65,8 @@ gem 'cancancan', '~> 1.10'
 
 gem 'rails-i18n', '~> 4.0.0'
 
+gem "active_model_serializers", github: "rails-api/active_model_serializers"
+
 group :doc do
   gem 'sdoc', '0.3.20', require: false
 end

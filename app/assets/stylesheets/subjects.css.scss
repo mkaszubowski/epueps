@@ -112,8 +112,6 @@
       margin-left: 1rem;
     }
 
-
-
     h2 {
       line-height: 2.5rem;
       width: 100%;
@@ -161,8 +159,16 @@
     //background: #4d3;
   }
 
+  ul {
+    display: none;
+  }
+
   .lesson.active {
     background: #e4e4e4;
+
+    ul {
+      display: block;
+    }
   }
 }
 

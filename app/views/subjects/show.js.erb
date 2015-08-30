@@ -1,12 +1,14 @@
 var current = "#lesson-" +<%= @current_video.lesson.id %>;
 
+console.log(current);
+
 $(current).siblings().removeClass("active");
 $(current).siblings().find("a").addClass("hidden");
 $(current).addClass("active");
 $(current).find("a").removeClass("hidden");
 
 
-$(".lesson>.lesson-videos").hide();
+// $(".lesson>.lesson-videos").hide();
 $(".lesson.active>.lesson-videos").show();
 
 $('.video').fadeOut("fast", function(){

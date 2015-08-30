@@ -41,7 +41,7 @@ $(document).ready(function() {
   }, 200);
 
 
-  $(".lesson>.lesson-videos").hide();
+  // $(".lesson>.lesson-videos").hide();
   $(".lesson.active>.lesson-videos").show();
 
 });
