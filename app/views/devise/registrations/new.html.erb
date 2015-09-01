@@ -1,22 +1,23 @@
 <% provide :title, "Rejestracja" %>
 
-<h1 class="center">Rejestracja</h1>
+<div class='form-container'>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "custom-form" }) do |f| %>
-  <%= f.error_notification %>
+  <h1 class="center">Rejestracja</h1>
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "custom-form" }) do |f| %>
+    <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true,
-                label: "Hasło" %>
-    <%= f.input :password_confirmation, required: true,
-                label: "Potwierdź hasło" %>
-  </div>
+    <div class="form-inputs">
+      <%= f.input :email, required: true, autofocus: true %>
+      <%= f.input :password, required: true,
+                  label: "Hasło" %>
+      <%= f.input :password_confirmation, required: true,
+                  label: "Potwierdź hasło" %>
+    </div>
 
-  <div class="form-actions">
-    <%= f.button  :submit, "Zarejestruj się",
-                  class: "button button-primary" %>
-  </div>
-  <%= render "devise/shared/links" %>
-<% end %>
-
+    <div class="form-actions">
+      <%= f.button  :submit, "Zarejestruj się",
+                    class: "button button-primary" %>
+    </div>
+    <%= render "devise/shared/links" %>
+  <% end %>
+</div>
