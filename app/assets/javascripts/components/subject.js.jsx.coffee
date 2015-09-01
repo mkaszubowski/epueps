@@ -14,7 +14,7 @@ Subject = React.createClass
     R.article
       className: 'subject'
       R.h2(null, R.a({href: path}, this.props.subject.name ))
-      R.img({src: this.props.subject.image.url, alt: this.props.subject.name})
+      R.img({src: this.props.subject.image_url, alt: this.props.subject.name})
 
       R.section
         className: 'description'
