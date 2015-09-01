@@ -13,47 +13,26 @@
 </div>
 
 
-<!-- <%= react_component 'SubjectPage', subject: @subject %> -->
-<!--
-<h1>
-  <%= @subject.name %>
-</h1>
- -->
 <!-- TODO: Add breadcrumbs -->
 
 <div class='container'>
-  <div class = "subject-page">
-
-    <% if @lessons.any? %>
-
-    <div class="main-subject-content">
-      <ul class="lesson-menu">
-        <%= render partial: 'lessons/lesson',
-              collection: @lessons,
-              locals: { current_lesson: @current_lesson } %>
-      </ul>
-
-      <div class ="video">
-        <%= render partial: 'lessons/lesson_video',
-            locals: {video: @current_video} %>
-      </div>
-    </div>
-
-    <% else %>
-      <p>Aktualnie nie ma żadnych lekcji z tego przedmiotu. Prawdopodobnie zostaną one niedługo dodane. Prosimy spróbować później lub skontaktować się z administracją.</p>
-    <% end %>
+  <% if @lessons.any? %>
+    <%= react_component 'SubjectPage', subject: @subject %>
+  <% else %>
+    <p>Aktualnie nie ma żadnych lekcji z tego przedmiotu. Prawdopodobnie zostaną one niedługo dodane. Prosimy spróbować później lub skontaktować się z administracją.</p>
+  <% end %>
 
 
-    <aside class="subject-description">
-      <h2>Opis przedmiotu </h2>
-      <%= @subject.description %>
-    </aside>
+  <aside class="subject-description">
+    <h2>Opis przedmiotu </h2>
+    <%= @subject.description %>
+  </aside>
 
-    <aside class="lesson-description">
+  <aside class="lesson-description">
 
-      <%= render partial: 'lessons/lesson_description',
-      locals: {lesson: @current_lesson} unless @current_lesson.nil? %>
-    </aside>
+    <%= render partial: 'lessons/lesson_description',
+    locals: {lesson: @current_lesson} unless @current_lesson.nil? %>
+  </aside>
 
   </div>
 </div>
