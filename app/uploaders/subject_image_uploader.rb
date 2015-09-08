@@ -19,7 +19,15 @@ class SubjectImageUploader < CarrierWave::Uploader::Base
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
   def default_url
-    "subjects/default_subject_image-#{rand(5)}.jpg"
+    "subjects/default_subject_image-#{random_default_image_id}.jpg"
+  end
+
+  def random_default_image_id
+    (model.hash.try(:to_i) || 0) % default_images_count
+  end
+
+  def default_images_count
+    5
   end
 
   # Process files as they are uploaded:
