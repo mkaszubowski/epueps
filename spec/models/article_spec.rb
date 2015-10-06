@@ -52,5 +52,11 @@ RSpec.describe Article, :type => :model do
       expect(@article.published_at).to match /\d{2}\.\d{2}\.\d{4}/
     end
   end
+
+  describe '#author' do
+    it 'should return article author\'s email' do
+      expect(@article.author).to eq @article.user.email
+    end
+  end
 end
 
