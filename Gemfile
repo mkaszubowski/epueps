@@ -25,8 +25,8 @@ group :test do
 end
 
 gem 'pg', '0.15.1'
-gem 'bootstrap-sass', '~> 3.3.5'
-gem 'sass-rails', '~>4.0.1'
+gem 'bootstrap-sass', '> 3.3.5'
+gem 'sass-rails', '>4.0.2'
 gem 'uglifier', '2.1.1'
 gem 'coffee-rails', '4.0.1'
 gem 'jquery-rails', '3.0.4'
@@ -47,7 +47,7 @@ gem 'slim-rails'
 gem 'rollbar', '~> 1.5.3'
 
 gem 'react-rails', '~> 1.0'
-gem 'browserify-rails', '~> 0.9'
+gem 'browserify-rails', '>0.9'
 
 gem 'coveralls', require: false
 
