@@ -27,3 +27,4 @@ config/secrets.yml
 /node_modules
 .tags
 .tags_sorted_by_file
+.capistrano/metric
