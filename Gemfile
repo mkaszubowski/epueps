@@ -44,6 +44,7 @@ gem 'mini_magick'
 gem 'acts_as_list'
 gem 'slim-rails'
 gem 'decent_exposure'
+gem 'draper', '~> 1.3'
 
 gem 'rollbar', '~> 1.5.3'
 
