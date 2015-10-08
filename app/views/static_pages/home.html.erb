@@ -32,12 +32,12 @@
     <section id='home-articles' class='articles'>
       <h1>Najnowsze artykuły</h1>
       <div class='container'>
-        <%= render @articles %>
+        <%= render partial: 'articles/homepage_articles', locals: { articles: @articles } %>
       </div>
 
       <%= link_to 'Wszystkie artykuły',
                   articles_path,
-                  class: 'button button-secondary' %>
+                  class: 'button button-secondary all-articles' %>
 
     </section>
   <% end %>
