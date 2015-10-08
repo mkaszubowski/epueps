@@ -1,13 +1,14 @@
 React = require('react')
 $ = require('jquery')
 
-{section, h1, div, ul, li, h2, a, iframe} = React.DOM
+VideoFrame = require('./videoFrame.js.jsx.coffee')
+
+{ section, h1, div, ul, li, h2, a } = React.DOM
 
 SubjectPage = React.createClass
   getInitialState: ->
     return {
       subject: @props.subject,
-      videos: [],
       lessons: [],
       currentVideo: null,
       currentLesson: null
@@ -34,29 +35,11 @@ SubjectPage = React.createClass
     @setState({ currentLesson: lesson })
 
   setCurrentVideo: (video) ->
-    console.log('change video')
     @setState({ currentVideo: video })
 
 
 
   render: ->
-    unless @state.currentVideo == null
-      videoFrame =
-        div
-          className: 'video'
-          div
-            className: 'lesson-video-container'
-            iframe(
-              {
-                className: 'lesson-video'
-                src: @state.currentVideo.embed_link
-                id: "video-#{@state.currentVideo.id}"
-                allowfullscreen: 'allowfullscreen'
-              },
-              '')
-    else
-      videoFrame = ''
-
     section
       className: 'subject-page',
       div
@@ -83,7 +66,7 @@ SubjectPage = React.createClass
                         className: 'video-link',
                       },
                       video.name)
-        videoFrame
+        React.createElement VideoFrame, video: @state.currentVideo
 
 
 
