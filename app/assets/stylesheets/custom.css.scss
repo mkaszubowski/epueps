@@ -88,9 +88,22 @@ h1 {
 /* COMMON ELEMENTS */
 /* *************** */
 
+.static-pages-controller.home {
+  #page-header {
+    background: linear-gradient(#262626, rgba(0, 0, 0, 0));
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+    top: 0;
+    left: 0;
+
+    #main-menu {
+      font-size: 1.1em;
+    }
+  }
+}
+
 #page-header {
-
-
   background: $header-bg;
   color: #fff;
   height: $header-height;
@@ -160,9 +173,9 @@ h1 {
   border-radius: 3px;
 
 
-  font-family: 'Roboto Slab', serif;
-  font-weight: 400;
-  font-size: 0.85rem;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 0.9rem;
 
   transition: 0.3s;
 
@@ -182,6 +195,7 @@ h1 {
 
   &:hover {
     background: darken($secondary, 5%);
+    color: #fff;
   }
 }
 
@@ -284,8 +298,7 @@ h1 {
   margin-bottom: 20px;
   box-sizing: border-box;
 
-  box-shadow: 0px 0px 1px #797979;
-  border-radius: 3px;
+  box-shadow: 0px 0px 4px #E8E8E8;
 
   position: relative;
   padding-bottom: 4em;
