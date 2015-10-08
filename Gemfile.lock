@@ -383,6 +383,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers!
   acts_as_list
+  autoprefixer-rails
   better_errors
   binding_of_caller
   bootstrap-sass (> 3.3.5)

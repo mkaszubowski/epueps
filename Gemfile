@@ -45,6 +45,7 @@ gem 'acts_as_list'
 gem 'slim-rails'
 gem 'decent_exposure'
 gem 'draper', '~> 1.3'
+gem "autoprefixer-rails"
 
 gem 'rollbar', '~> 1.5.3'
 
