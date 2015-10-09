@@ -32,7 +32,7 @@
     <section id='home-articles' class='articles'>
       <h1>Najnowsze artykuły</h1>
       <div class='container'>
-        <%= render partial: 'articles/homepage_articles', locals: { articles: @articles } %>
+        <%= render partial: 'articles/homepage_articles', locals: { articles: @articles.to_a } %>
       </div>
 
       <%= link_to 'Wszystkie artykuły',
