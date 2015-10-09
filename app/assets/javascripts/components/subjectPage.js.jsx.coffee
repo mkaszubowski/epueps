@@ -2,6 +2,7 @@ React = require('react')
 $ = require('jquery')
 
 VideoFrame = require('./videoFrame.js.jsx.coffee')
+SubjectPageMenu = require('./subjectPageMenu.js.jsx.coffee')
 
 { section, h1, div, ul, li, h2, a } = React.DOM
 
@@ -37,37 +38,17 @@ SubjectPage = React.createClass
   setCurrentVideo: (video) ->
     @setState({ currentVideo: video })
 
-
-
   render: ->
     section
       className: 'subject-page',
       div
         className: 'main-subject-content',
-        ul
-          className: 'lesson-menu',
-          for lesson in @state.lessons
-            lessonActive = if lesson == @state.currentLesson then 'active' else ''
-            li
-              className: "lesson #{lessonActive}",
-              onClick: @setCurrentLesson.bind(this, lesson)
-              key: 'lesson' + lesson.id,
-              h2 {},
-                a {},
-                lesson.name
-              ul
-                className: 'lesson-videos'
-                for video in lesson.videos
-                  li
-                    className: 'video-li',
-                    onClick: @setCurrentVideo.bind(this, video)
-                    a(
-                      {
-                        className: 'video-link',
-                      },
-                      video.name)
+        React.createElement SubjectPageMenu,
+          lessons: @state.lessons,
+          currentLesson: @state.currentLesson,
+          setCurrentLesson: @setCurrentLesson,
+          setCurrentVideo: @setCurrentVideo
+
         React.createElement VideoFrame, video: @state.currentVideo
-
-
 
 module.exports = SubjectPage
