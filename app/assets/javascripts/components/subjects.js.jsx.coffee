@@ -43,17 +43,17 @@ Subjects = React.createClass
 
   render: ->
     unless @props.showScopeLinks == false
-      scopeLinks = 
-        React.createElement SubjectScopeLinks, 
+      scopeLinks =
+        React.createElement SubjectScopeLinks,
           scope: @state.scope,
-          handleRecentClick: @handleRecentClick, 
+          handleRecentClick: @handleRecentClick,
           handlePopularClick: @handlePopularClick
 
     R.div
       className: 'subject-section'
       scopeLinks
       R.div
-        className: 'subjects'
+        className: 'subjects row'
         for subject in @state.subjects
           React.createElement Subject, subject: subject
 

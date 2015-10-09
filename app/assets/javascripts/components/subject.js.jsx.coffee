@@ -11,21 +11,23 @@ Subject = React.createClass
     else
       description = this.props.subject.description
 
-    R.article
-      className: 'subject'
-      R.h2(null, R.a({href: path}, this.props.subject.name ))
-      R.img({src: this.props.subject.image_url, alt: this.props.subject.name})
+    R.section
+      className: 'subject-wrapper col-md-4 col-sm-6'
+      R.article
+        className: 'subject col-md-4 col-sm-6'
+        R.h2(null, R.a({href: path}, this.props.subject.name ))
+        R.img({src: this.props.subject.image_url, alt: this.props.subject.name})
 
-      R.section
-        className: 'description'
-        description
+        R.section
+          className: 'description'
+          description
 
-      R.a(
-        {
-          href: path + '/info',
-          className: 'button button-primary',
-          id: 'subject-' + this.props.subject.id
-        }
-        'Zobacz kurs')
+        R.a(
+          {
+            href: path + '/info',
+            className: 'button button-primary',
+            id: 'subject-' + this.props.subject.id
+          }
+          'Zobacz kurs')
 
 module.exports = Subject

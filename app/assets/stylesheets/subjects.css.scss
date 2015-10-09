@@ -18,6 +18,14 @@
   }
 }
 
+.subject-section {
+  .row {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
 .subject-header {
   position: relative;
   height: $subject-info-header-height;
@@ -57,14 +65,12 @@
   box-sizing: border-box;
   margin-bottom: 2em;
 
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-
   border: 0;
 
   .description {
     margin-bottom: 1em;
+    height: 100px;
+    text-overflow: ellipsis;
   }
 
   img {
