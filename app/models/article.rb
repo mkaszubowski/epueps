@@ -7,6 +7,8 @@ class Article < ActiveRecord::Base
             presence: { message: 'Treść nie może być pusta' }
   validates :user_id, presence: true
 
+  scope :newest, -> { order('created_at DESC') }
+
   def body_text
     body
   end
