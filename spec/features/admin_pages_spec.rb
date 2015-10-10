@@ -1,22 +1,29 @@
 require 'rails_helper'
 
-RSpec.describe "AdminPages", :type => :request do
+def sign_in(user)
+  visit new_user_session_path
+  fill_in 'user[email]', with: user.email
+  fill_in 'user[password]', with: FactoryGirl.attributes_for(:user)[:password]
+  click_button 'Zaloguj się'
+end
+
+RSpec.describe 'AdminPages', :type => :request do
 
   let!(:admin) { FactoryGirl.create(:admin) }
   let!(:moderator) { FactoryGirl.create(:moderator, email: 'foo@baz.com') }
 
   subject { page }
 
-  describe "site's home page when admin is signed in" do
+  describe 'site\'s home page when admin is signed in' do
     before do
       sign_in admin
       visit root_path
     end
 
-    it { should have_link "Panel administracyjny", href: admin_path }
+    it { should have_link 'Panel administracyjny', href: admin_path }
   end
 
-  describe "site's home page when moderator is signed in" do
+  describe 'site\'s home page when moderator is signed in' do
     before do
       sign_in moderator
       visit root_path
@@ -27,25 +34,25 @@ RSpec.describe "AdminPages", :type => :request do
     end
   end
 
-  describe "index page" do
-    context "as not-admin user" do
+  describe 'index page' do
+    context 'as not-admin user' do
       before { visit admin_path }
-      it { should have_content "Nie masz uprawnień do wykonania tej akcji"}
+      it { should have_content 'Nie masz uprawnień do wykonania tej akcji'}
     end
 
-    context "as an admin" do
+    context 'as an admin' do
       before do
         sign_in admin
         visit admin_path
       end
 
-      it { should have_title admin_title("Panel administracyjny") }
-      it { should have_content "Panel administracyjny" }
+      it { should have_title admin_title('Panel administracyjny') }
+      it { should have_content 'Panel administracyjny' }
       it { should have_content "Zalogowano jako: #{admin.email}" }
 
-      it { should have_content "Przedmioty: 0" }
-      it { should have_content "Lekcje: 0" }
-      it { should have_content "Filmy: 0" }
+      it { should have_content 'Przedmioty: 0' }
+      it { should have_content 'Lekcje: 0' }
+      it { should have_content 'Filmy: 0' }
       it { should have_content "Użytkownicy: #{User.count}" }
 
       it 'should have link to subjects page' do
