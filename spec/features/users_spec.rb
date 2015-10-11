@@ -1,8 +1,9 @@
 require 'rails_helper'
 
+require 'support/sign_in_helper.rb'
+
 
 RSpec.describe 'Users', :type => :request do
-
   let!(:user) { FactoryGirl.create(:user) }
   let!(:user2) { FactoryGirl.create(:user, email: 'bar@boo.com') }
   let!(:admin) { FactoryGirl.create(:admin, email: 'foo@baz.com') }
@@ -22,13 +23,15 @@ RSpec.describe 'Users', :type => :request do
       end
 
 
-      it { should have_content 'Zalogowano się pomyślnie' }
+      it { should have_content 'Zalogowano pomyślnie' }
       it { should have_content 'Wyloguj się' }
 
       describe 'after signing out' do
-        before { click_link 'Wyloguj się' }
+        before do
+          first("a[href='/users/sign_out']").click
+        end
 
-        it { should have_content 'Wylogowano się pomyślnie' }
+        it { should have_content 'Wylogowano pomyślnie' }
         it { should have_content 'Zaloguj się' }
       end
     end
@@ -50,12 +53,12 @@ RSpec.describe 'Users', :type => :request do
         fill_in 'Email',            with: 'test@bar.com'
         fill_in 'Hasło',            with: 'foobar123'
         fill_in 'Potwierdź hasło',  with: 'foobar123'
-        click_button 'Zarejestruj się' 
+        click_button 'Zarejestruj się'
       end
 
       it { should_not have_content 'Zarejestruj się' }
 
-      it { should have_content 'Witamy, zarejestrowałeś się pomyślnie' }
+      it { should have_content 'Rejestracja zakończyła się sukcesem.' }
       it { should have_content 'Wyloguj się' }
 
       it 'should redirect to homepage' do
@@ -71,8 +74,6 @@ RSpec.describe 'Users', :type => :request do
         fill_in 'Potwierdź hasło',  with: 'foobar123'
         click_button 'Zarejestruj się'
       end
-
-      it { should have_content 'W formularzu wystąpiły błędy' }
     end
   end
 
@@ -107,7 +108,6 @@ RSpec.describe 'Users', :type => :request do
       it { should have_button 'Szukaj' }
 
       describe 'finding users' do
-
         describe 'when user is found the database' do
           before do
             fill_in 'search',  with: 'foo'
@@ -148,7 +148,6 @@ RSpec.describe 'Users', :type => :request do
       end
 
       describe 'sorting the table' do
-        # ensure that users aren't sorted by email
         before { click_link 'Administrator' }
 
         describe 'by email' do
@@ -200,6 +199,4 @@ RSpec.describe 'Users', :type => :request do
       end
     end
   end
-
-
 end
