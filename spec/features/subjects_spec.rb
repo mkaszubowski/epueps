@@ -71,13 +71,12 @@ RSpec.describe 'Subjects', :type => :request do
     before { visit subject_info_path(subject1) }
 
     it { should have_title normal_title("#{subject1.name} - informacje") }
-    it { should have_content subject1.name}
+    it { should have_content subject1.name }
     it { should have_content subject1.description }
     it { should have_content 'Dostępne lekcje' }
     it { should have_link 'Zacznij kurs' }
 
     it { should have_css 'iframe' }
-
 
     it { should have_link lesson1.name }
 
@@ -91,100 +90,9 @@ RSpec.describe 'Subjects', :type => :request do
   end
 
   describe 'show page' do
-
-
     describe "when subject hasn't got any lessons" do
       before { visit subject_path(subject1) }
       it { should have_content 'nie ma żadnych lekcji' }
     end
-
-    describe 'when subject has at least one lesson' do
-      before do
-        @lesson = subject1.lessons.create(
-          name: 'Lesson1',
-          description: 'Lorem ipsum1')
-
-        @video1 = @lesson.videos.create(name: 'video 1',
-          link: 'youtube.com/watch?v=asdf')
-        @video2 = @lesson.videos.create(name: 'video 2',
-          link: 'youtube.com/watch?v=asdff')
-
-        @lesson2 = subject1.lessons.create(
-          name: 'Lesson2',
-          description: 'Lorem ipsum2')
-
-        @video3 = @lesson2.videos.create(name: 'video 3',
-          link: 'youtube.com/watch?v=asdff')
-        @video4 = @lesson2.videos.create(name: 'video 4',
-          link: 'youtube.com/watch?v=asdff')
-
-        visit subject_path(subject1)
-      end
-
-      it { should have_content subject1.name }
-      it { should have_title normal_title("#{subject1.name}") }
-      it { should have_link @lesson.name }
-
-      it { should have_link 'video 1' }
-      it { should have_link 'video 2' }
-
-      # Subject menu
-      it { should have_link @lesson.name }
-      it { should have_link @lesson2.name }
-
-
-      describe 'after clicking menu links' do
-        before { click_link @video4.name }
-        it { should have_css("iframe[id='video-#{@video4.id}']") }
-        it { should have_content @video4.lesson.description }
-        it { should have_content @video4.lesson.subject.description }
-
-        describe 'after leaving page' do
-          before do
-            visit root_path
-            visit subject_path(subject1)
-          end
-
-          it 'should rememeber last video' do
-            expect(page).to have_css("iframe[id='video-#{@video4.id}']")
-          end
-        end
-      end
-
-      describe 'video for signed in only' do
-        before do
-          @video_signed_in = @lesson.videos.create!(
-            name: 'signed_in',
-            link: 'youtube.com/watch?v=123',
-            signed_in_only: true)
-        end
-
-        context 'when user is not signed in' do
-          before do
-            visit subject_path(subject1)
-            click_link @video_signed_in
-          end
-
-          it { should have_content 'Tylko dla zalogowanych' }
-          it { should have_content '(tylko dla zalogowanych)' }
-          it { should have_link 'Zaloguj się' }
-          it { should have_link 'Zarejestruj się' }
-        end
-
-        context 'when user is signed in' do
-          before do
-            sign_in user
-            visit subject_path(subject1)
-            click_link @video_signed_in
-          end
-
-          it { should_not have_content 'Tylko dla zalogowanych' }
-          it { should_not have_content '(tylko dla zalogowanych)' }
-          it { should_not have_link 'Zaloguj się' }
-        end
-
-      end
-    end
   end
-
 end
