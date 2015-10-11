@@ -19,6 +19,30 @@ RSpec.describe User, :type => :model do
     it { should_not be_valid }
   end
 
+  describe 'when username is blank' do
+    context 'on create' do
+      before do
+        @user = User.new(email: 'foo@bar2.com', password: 'foobar123', username: '')
+      end
+
+      it 'should be valid' do
+        expect(@user).to be_valid
+      end
+
+      it 'should generate username from email' do
+        @user.save
+        expect(@user.username).to eq 'foo'
+      end
+    end
+
+    context 'on update' do
+      it 'is not valid' do
+        @user.username = ''
+        expect(@user.save).to eq false
+      end
+    end
+  end
+
   describe 'role' do
     context 'for admin users' do
       before { @user.role = 'admin' }

@@ -8,6 +8,7 @@
 
     <div class="form-inputs">
       <%= f.input :email, required: true, autofocus: true %>
+      <%= f.input :username, required: false, label: 'Imię' %>
       <%= f.input :password, required: true,
                   label: "Hasło" %>
       <%= f.input :password_confirmation, required: true,

@@ -26,6 +26,7 @@ FactoryGirl.define do
   factory :user do
     email         'foo@bar.com'
     password      'foobar123'
+    username      'user'
 
     factory :admin do
       role        'admin'
