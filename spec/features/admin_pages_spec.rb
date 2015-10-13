@@ -37,7 +37,11 @@ RSpec.describe 'AdminPages', :type => :request do
   describe 'index page' do
     context 'as not-admin user' do
       before { visit admin_path }
-      it { should have_content 'Nie masz uprawnień do wykonania tej akcji'}
+      it { should have_content 'Nie masz uprawnień do wykonania tej akcji' }
+
+      it 'should redirect to login page' do
+        expect(current_path).to eq new_user_session_path
+      end
     end
 
     context 'as an admin' do
