@@ -12,6 +12,7 @@
     "jquery": "*"
   },
   "dependencies": {
+    "react-youtube": "*",
     "coffeeify": "~> 0.6",
     "coffee-script": "*",
     "browserify": "~>6.3",
