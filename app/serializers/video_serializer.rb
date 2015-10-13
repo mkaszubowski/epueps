@@ -1,3 +1,3 @@
 class VideoSerializer < ActiveModel::Serializer
-  attributes :id, :name, :embed_link
+  attributes :id, :name, :link
 end

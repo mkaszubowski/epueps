@@ -1,5 +1,6 @@
 React = require('react')
 $ = require('jquery')
+YouTube = require('react-youtube')
 
 { div, iframe } = React.DOM
 
@@ -12,13 +13,14 @@ VideoFrame = React.createClass
         className: 'video'
         div
           className: 'lesson-video-container'
-          iframe(
-            {
-              className: 'lesson-video'
-              src: @props.video.embed_link
-              id: "video-#{@props.video.id}"
-              allowFullScreen: 'allowFullScreen'
+          React.createElement YouTube,
+            url: @props.video.link,
+            className: 'lesson-video',
+            opts: {
+              playerVars: {
+                autoplay: 1
+              }
             },
-            '')
+            onEnd: @props.playNextVideo
 
 module.exports = VideoFrame
