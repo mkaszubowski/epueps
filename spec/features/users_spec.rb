@@ -80,6 +80,7 @@ RSpec.describe 'Users', :type => :request do
   describe 'index page' do
     describe 'when user is not signed in' do
       before { visit admin_users_path }
+
       it { should have_content 'Nie masz uprawnień' }
     end
 
