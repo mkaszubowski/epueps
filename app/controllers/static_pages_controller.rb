@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @splash = true unless user_signed_in?
+    @splash = true
     @subjects = Subject.published.popular.limit(3)
     @articles = Article.includes(:user).newest.limit(4).decorate
   end
