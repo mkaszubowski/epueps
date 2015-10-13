@@ -29,6 +29,7 @@ SubjectPage = React.createClass
           lessonCurrentVideoIndex: 0,
           currentLessonIndex: 0,
         })
+        console.log(lessons)
 
       error: (xhr, status, error) ->
         console.log(error.toString())
@@ -36,11 +37,17 @@ SubjectPage = React.createClass
   componentDidMount: ->
     @loadResources()
 
-  setCurrentLesson: (lesson) ->
-    @setState({ currentLesson: lesson })
+  setCurrentLesson: (index) ->
+    @setState({
+      currentLessonIndex: index,
+      currentLesson: @state.lessons[index]
+      })
 
-  setCurrentVideo: (video) ->
-    @setState({ currentVideo: video })
+  setCurrentVideo: (index) ->
+    @setState({
+      lessonCurrentVideoIndex: index
+      currentVideo: @state.currentLesson.videos[index]
+      })
 
   playNextVideo: ->
     if @lessonHasMoreVideos(@state.currentLesson)

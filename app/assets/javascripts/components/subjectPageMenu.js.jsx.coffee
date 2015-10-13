@@ -7,11 +7,11 @@ SubjectPageMenu = React.createClass
   render: ->
     ul
       className: 'lesson-menu',
-      for lesson in @props.lessons
+      for lesson, index in @props.lessons
         lessonActive = if lesson == @props.currentLesson then 'active' else ''
         li
           className: "lesson #{lessonActive}",
-          onClick: @props.setCurrentLesson.bind(null, lesson),
+          onClick: @props.setCurrentLesson.bind(null, index),
           key: 'lesson' + lesson.id,
           h2 {},
             a {},
@@ -24,10 +24,10 @@ VideoSubmenu = React.createClass
   render: ->
     ul
       className: 'lesson-videos'
-      for video in @props.lesson.videos
+      for video, index in @props.lesson.videos
         li
           className: 'video-li',
-          onClick: @props.setCurrentVideo.bind(null, video),
+          onClick: @props.setCurrentVideo.bind(null, index),
           key: 'video' + video.id,
           a(
             {
