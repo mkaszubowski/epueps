@@ -3,11 +3,11 @@
     <li><%= link_to 'Strona główna',
               admin_path %></li>
     <li><%= link_to 'Przedmioty',
-              admin_subjects_path %></li>
+              admin_subjects_path if can? :read, Subject %></li>
     <li><%= link_to 'Użytkownicy',
-              admin_users_path %></li>
-    <li><%= link_to 'Artykuły',  
-              admin_articles_path %></li>
+              admin_users_path if can? :read, User %></li>
+    <li><%= link_to 'Artykuły',
+              admin_articles_path if can? :read, Article %></li>
     <li><%= link_to 'Powrót do witryny',
               root_path %></li>
   </ul>

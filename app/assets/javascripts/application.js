@@ -10,15 +10,27 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
 //= require jquery_ujs
+
 //= require turbolinks
+//= require react_ujs
+//= require components
 //= require ckeditor/init
-//= require_tree .
+
+//= require get_image_lightness
+//= require contact_map
+//= require static_pages
+//= require subjects
+//= require users
+//= require_tree ./admin
+
+
 
 $(document).ready(function() {
   // TODO: Fix close-div button
-	// Close-div button in alerts 
+	// Close-div button in alerts
 	$(".close-div").click(function() {
 		console.log("close-div");
 		$(this).parent().animate({'opacity': '0'}, 300);
@@ -27,9 +39,9 @@ $(document).ready(function() {
   $(".alert").animate({'top': '0rem'}, 500).delay(2000).animate({
     'top': '-3rem'
   }, 200);
-  
 
-  $(".lesson>.lesson-videos").hide();
+
+  // $(".lesson>.lesson-videos").hide();
   $(".lesson.active>.lesson-videos").show();
-});
 
+});

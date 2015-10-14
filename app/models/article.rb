@@ -4,8 +4,10 @@ class Article < ActiveRecord::Base
   validates :title,
             presence: { message: 'Tytuł nie może być pusty' }
   validates :body,
-            presence: { message: 'Treść nie może być pusty' }
+            presence: { message: 'Treść nie może być pusta' }
   validates :user_id, presence: true
+
+  scope :newest, -> { order('created_at DESC') }
 
   def body_text
     body
@@ -17,6 +19,10 @@ class Article < ActiveRecord::Base
 
   def published_at
     created_at.strftime('%d.%m.%Y')
+  end
+
+  def author
+    user.email
   end
 
 end

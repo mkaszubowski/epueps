@@ -3,13 +3,13 @@
   <h2 class = "<%= lesson.color_class %>">
     <%= link_to lesson.name, 
           subject_path( lesson.subject, 
-          params: {video_id: lesson.videos.first.id}), 
+          params: { video_id: lesson.videos.try(:first).try(:id) }), 
           remote: true,
           class: "#{lesson.color_class}" %>
   </h2>
 
   <ul class = "lesson-videos">
-    <%= render lesson.videos %>
+    <%= render lesson.videos unless lesson.videos.empty? %>
   </ul>
   
 </li>

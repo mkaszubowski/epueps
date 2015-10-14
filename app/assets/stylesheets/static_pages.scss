@@ -1,0 +1,52 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* ******** */
+/* HOMEPAGE */
+/* ******** */
+
+$text-color: #575757;
+
+#home-splash {
+	background-image: image-url("splash-bg.jpg");
+	background-size: cover;
+	background-position: center;
+
+	margin-top: -2em;
+	margin-bottom: 2em;
+
+	color: #fff;
+
+	h1 {
+		font-size: 4rem;
+		line-height: 4.5rem;
+		font-weight: 100;
+
+
+		padding-top: 8rem;
+	}
+
+	.button {
+		margin-bottom: 6rem;
+		margin-right: 1rem;
+	}
+}
+
+#home-articles {
+	padding-top: 2em;
+
+	h1 {
+		margin-bottom: 1.25em;
+	}
+
+	.all-articles {
+		display: block;
+		margin: 0 auto;
+	}
+}
+
+.all-subjects {
+	position: relative;
+	top: -20px
+}

@@ -5,13 +5,15 @@
 # property set.  Don't declare `role :all`, it's a meta role.
 
 set :stage, :production
- 
+
 role :app, %w{deploy@150.254.27.111}
 role :web, %w{deploy@150.254.27.111}
 role :db,  %w{deploy@150.254.27.111}
 
 set :rvm_type, :user
 set :rvm_ruby_version, '2.2.0'
+
+set :npm_flags, '--production --no-spin'
 
 set :linked_files, %w{config/database.yml config/secrets.yml}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}

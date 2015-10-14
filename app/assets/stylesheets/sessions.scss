@@ -1,0 +1,50 @@
+@import "vars";
+
+.sessions-controller, .registrations-controller, .passwords-controller {
+  background: image_url('login-bg.jpg');
+
+  .form-container {
+    display: block;
+    width: 420px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    padding: 25px 30px;
+    background: #fff;
+    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.44);
+
+    .custom-form {
+      width: 100%;
+    }
+
+    .user_remember_me {
+      padding-left: 20px;
+    }
+
+    .input {
+      .required {
+        abbr {
+          cursor: normal;
+          border: none;
+        }
+      }
+    }
+  }
+
+  h1 {
+    color: $text-color;
+  }
+}
+.sessions-controller.new {
+  .form-container {
+    .input {
+      &:nth-last-child(2) {
+        input {
+          margin-bottom: 0;
+        }
+      }
+      &:last-child {
+        margin-bottom: 1em;
+      }
+    }
+  }
+}

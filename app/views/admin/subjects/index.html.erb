@@ -4,8 +4,8 @@
   <h1>Wszystkie przedmioty</h1>
 
   <div class = 'subject-actions'>
-    <%= link_to 'Nowy przedmiot', new_admin_subject_path, 
-        class: 'button button-secondary' %>
+    <%= link_to 'Nowy przedmiot', new_admin_subject_path,
+        class: 'button button-secondary' if can? :create, Subject %>
     <%= link_to 'Usunięte przedmioty', deleted_admin_subjects_path,
         class: 'button button-secondary' %>
   </div>

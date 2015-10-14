@@ -1,79 +1,83 @@
-class Admin::LessonsController < ApplicationController
-  include CurrentVideo
-  include Admin
+module Admin
+  class LessonsController < BaseController
+    include CurrentVideo
 
-  layout 'admin'
+    authorize_resource
 
-  before_action :authenticate_admin
-  before_action :set_lesson, only: [:show, :destroy, :edit, :update, :sort]
+    before_action :set_lesson,
+                  only: [:show, :destroy, :sort, :edit, :update]
+    before_action :set_subject,
+                  only: [:show, :new, :create, :edit, :update]
 
-  def new
-    @lesson = Lesson.new
-    @subject = Subject.find(params[:subject_id])
-  end
-
-  def create
-    @subject = Subject.find(params[:subject_id])
-    @lesson = @subject.lessons.build(lesson_params)
-
-    if @lesson.save
-      flash[:success] = 'Dodano lekcję'
-      redirect_to admin_subject_path(@subject)
-    else
-      flash[:error] = 'Wystąpił błąd'
-      render 'new'
+    def show
+      @videos = @lesson.videos
     end
-  end
 
-  def show
-    @videos = @lesson.videos
-  end
-
-  def destroy
-    @lesson = Lesson.find(params[:id])
-
-    if @lesson.destroy
-      flash[:success] = 'Usunięto lekcję'
-      redirect_to admin_subject_path(@lesson.subject)
-    else
-      flash[:error] = 'Wystąpił błąd. Spróbuj ponownie później'
+    def new
+      @lesson = Lesson.new
     end
-  end
 
-  def sort
-    @subject = @lesson.subject
+    def create
+      @lesson = @subject.lessons.build(lesson_params)
 
-    if params[:position] == 'up'
-      @lesson.move_higher
-    else
-      @lesson.move_lower
+      if @lesson.save
+        flash[:success] = 'Dodano lekcję'
+        redirect_to admin_subject_path(@subject)
+      else
+        flash[:error] = 'Wystąpił błąd'
+        render 'new'
+      end
     end
-  end
 
-  def edit
-  end
+    def destroy
+      @lesson = Lesson.find(params[:id])
 
-  def update
-    if @lesson.update_attributes(lesson_params)
-      flash[:success] = 'Zaktualizowano lekcję'
-      redirect_to admin_subject_path(@subject)
-    elsif @lesson.errors.any?
-      flash.now[:error] = 'Wystąpiły błędy w formularzu'
-      render 'edit'
-    else
-      flash.now[:error] = 'Wystąpił nieznany błąd. Spróbuj ponownie później'
-      render 'edit'
+      if @lesson.destroy
+        flash[:success] = 'Usunięto lekcję'
+        redirect_to admin_subject_path(@lesson.subject)
+      else
+        flash[:error] = 'Wystąpił błąd. Spróbuj ponownie później'
+      end
     end
-  end
 
-  private
+    def sort
+      @subject = @lesson.subject
 
-  def lesson_params
-    params.require(:lesson).permit(:name, :video_link, :description)
-  end
+      if params[:position] == 'up'
+        @lesson.move_higher
+      else
+        @lesson.move_lower
+      end
+    end
 
-  def set_lesson
-    @lesson = Lesson.find(params[:id])
-    @subject = @lesson.subject
+    def edit
+    end
+
+    def update
+      if @lesson.update_attributes(lesson_params)
+        flash[:success] = 'Zaktualizowano lekcję'
+        redirect_to admin_subject_path(@subject)
+      elsif @lesson.errors.any?
+        flash.now[:error] = 'Wystąpiły błędy w formularzu'
+        render 'edit'
+      else
+        flash.now[:error] = 'Wystąpił nieznany błąd. Spróbuj ponownie później'
+        render 'edit'
+      end
+    end
+
+    private
+
+    def lesson_params
+      params.require(:lesson).permit(:name, :video_link, :description)
+    end
+
+    def set_lesson
+      @lesson = Lesson.find(params[:id])
+    end
+
+    def set_subject
+      @subject = Subject.find(params[:subject_id])
+    end
   end
 end

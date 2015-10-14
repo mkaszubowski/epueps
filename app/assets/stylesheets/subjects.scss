@@ -1,0 +1,224 @@
+// Place all the styles related to the Subjects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+@import "vars";
+
+.subjects-controller.show {
+
+  header#page-header {
+    margin-bottom: 0;
+  }
+}
+
+.subject-index {
+  h1 {
+    margin-bottom: 0;
+  }
+}
+
+.subject-section {
+  .row {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+.subject-header {
+  position: relative;
+  height: $subject-info-header-height;
+  overflow: hidden;
+  margin-bottom: 3em;
+  box-shadow: 0px 5px 7px -7px #565656;
+
+  h1 {
+    position: relative;
+    line-height: $subject-info-header-height;
+    font-size: 3.5em;
+
+    color: #fff;
+  }
+  &.light {
+    h1 {
+      color: #666666;
+    }
+  }
+
+  .subject-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+    }
+  }
+  }
+
+
+.subjects {
+  text-align: center;
+  box-sizing: border-box;
+  margin-bottom: 2em;
+
+  border: 0;
+
+  .description {
+    margin-bottom: 1em;
+    height: 100px;
+    text-overflow: ellipsis;
+  }
+
+  img {
+    height: 200px;
+    max-width: 100%;
+  }
+}
+
+.subject-scope-options {
+  text-align: center;
+  margin-bottom: 2rem;
+  a {
+    color: #575757;
+    font-weight: 100;
+    text-decoration: none;
+
+  }
+  a.active {
+    color: darken(#575757, 25%);
+    font-weight: 300;
+  }
+}
+
+.lesson-menu {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #d1d1d1;
+  width: 25%;
+
+  margin-bottom: 2em;
+  float: left;
+
+  .lesson-videos {
+    list-style: none;
+    line-height: 1.5em;
+  }
+
+  .lesson {
+    flex: 1;
+    display: block;
+
+    a {
+      color: #ddd;
+      text-decoration: none;
+      margin-left: 1rem;
+    }
+
+    h2 {
+      line-height: 2.5rem;
+      width: 100%;
+      color: #fff;
+      border-left: 7px solid #008f9c;
+      box-sizing: border-box;
+      font-size: 1.1em;
+
+      transition: 0.3s;
+
+      background: #2C3B4B;
+      &.color-1 {
+        background: $lesson-color-1;
+        a { color: $text-color; }
+      }
+      &.color-2 {
+        background: $lesson-color-2;
+        a { color: #fff; }
+      }
+      &.color-3 {
+        background: $lesson-color-3;
+        // a { color: #fff; }
+      }
+
+      &:hover {
+        border-left: 14px solid #008f9c;
+      }
+    }
+
+    border-bottom: 1px solid #D1D1D1;
+
+    &:nth-child(odd) {
+      background: darken(#E5EBEC, 2%);
+    }
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    img {
+      width: 5rem;
+      float: left;
+      margin-right: 0.5em;
+    }
+
+    //background: #4d3;
+  }
+
+  ul {
+    display: none;
+  }
+
+  .lesson.active {
+    background: #e4e4e4;
+
+    ul {
+      display: block;
+    }
+  }
+}
+
+.lesson-videos {
+
+  padding: 0.5rem 0;
+  a {
+    color: #343434 !important;
+  }
+}
+
+.video {
+  width: 73%;
+  float: right;
+
+
+}
+
+.main-subject-content{
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  margin-bottom: 2em;
+}
+
+.subject-page {
+
+  .subject-description {
+    width: 48%;
+    float: left;
+  }
+  .lesson-description {
+    width: 48%;
+    float: right;
+  }
+
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+

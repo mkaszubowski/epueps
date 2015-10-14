@@ -1,1 +1,6 @@
 $('table.lessons tbody').html("<%= j render @subject.lessons %>");
+$('<%= "#lesson-#{@lesson.id}" %>').css('background', '#fffccd');
+setInterval(function() {
+  $('<%= "#lesson-#{@lesson.id}" %>').css('background', '');
+}, 100);
+

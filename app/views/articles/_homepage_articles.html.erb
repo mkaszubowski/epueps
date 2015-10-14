@@ -1,0 +1,5 @@
+<%= render partial: 'articles/recommended', locals: {article: articles.delete_at(0) } %>
+
+<% articles.each do |article| %>
+  <%= render partial: 'articles/teaser', locals: { article: article } %>
+<% end %>

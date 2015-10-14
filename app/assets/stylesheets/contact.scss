@@ -1,0 +1,46 @@
+@import 'vars';
+
+.contact-emails-controller {
+
+  .form {
+    width: 40%;
+    position: absolute;
+    top: calc($header-height + 30px);
+    right: 40px;
+    z-index: 999;
+    .custom-form {
+      background: #F5F5F5;
+      padding: 25px;
+      display: block;
+      float: right;
+      width: 100%;
+    }
+  }
+  #map-canvas {
+    position: absolute;
+    top: $header-height;
+    left: 0;
+    width: 100%;
+    height: 600px;
+
+    border: 1px solid #dfdfdf;
+  }
+
+  footer {
+    position: relative;
+    top: 550px;
+  }
+
+  .info-window {
+    display: block;
+    width: 45%;
+    float: right;
+    margin-top: 20px;
+    border: 1px solid #dfdfdf;
+    background: #fff;
+    height: 250px;
+
+    h2 {
+    }
+  }
+}

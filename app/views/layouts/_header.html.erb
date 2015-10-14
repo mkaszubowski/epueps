@@ -1,28 +1,28 @@
 
 <header id = 'page-header'>
-	<div class = 'container'>
-		<div id='logo'><%= link_to 'ePUEPS', root_path %></div>
+  <div class = 'container'>
+    <div id='logo'><%= link_to 'ePUEPS', root_path %></div>
 
-		<nav id='main-menu'>
-			<ul>
-				<li><%= link_to 'Wszystkie kursy', subjects_path %></li>
-				<li><%= link_to 'Artykuły', articles_path %></li>
-				<!-- <li><%= link_to 'O platformie', '#' %></li> -->
+    <nav id='main-menu'>
+      <ul>
+        <li><%= link_to 'Wszystkie kursy', subjects_path %></li>
+        <li><%= link_to 'Artykuły', articles_path %></li>
+        <li><%= link_to 'Kontakt', contact_path %></li>
 
-				<% if user_signed_in? && current_user.admin? %>
-					<li><%= link_to 'Panel administracyjny', admin_path %></li>
-				<% end %>
+        <% if current_user.try(:can_view_admin_panel?) %>
+          <li><%= link_to 'Panel administracyjny', admin_path %></li>
+        <% end %>
 
-				<li><%= sign_in_out_link %></li>
-			</ul>
-		</nav>
-	</div>
+        <li><%= sign_in_out_link %></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 
 <!-- TODO: Make flash position: fixed and auto hide -->
 <%= render 'layouts/flash_messages' %>
 
-<% unless @splash %>
-	<div class = 'container'>
+<% unless @splash || no_container?(yield(:no_container)) %>
+  <div class = 'container'>
 <% end %>

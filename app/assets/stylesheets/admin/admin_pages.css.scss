@@ -12,7 +12,6 @@ $sidebar-width: 15em;
   top: 4em;
   padding-top: 1.5em;
   z-index: 1;
-  text-align: center;
   height: 100vh;
 
   img {
@@ -20,13 +19,26 @@ $sidebar-width: 15em;
   }
 
   li {
+    height: 3.5em;
+    line-height: 3.5em;
+    border-bottom: 1px solid #515A5A;
+
+    &:first-child {
+      border-top: 1px solid #515A5A;
+    }
+
     a {
       color: #fff;
       text-decoration: none;
       font-size: 1em;
       line-height: 1.5em;
-      &.active, &:hover {
-        color: #EB8A45;
+      border-left: 7px solid #008f9c;
+      display: block;
+      padding-left: 1em;
+      transition: 0.3s;
+
+      &.active, &:hover, .active {
+        border-left: 14px solid #008f9c
       }
     }
   }

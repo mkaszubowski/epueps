@@ -52,5 +52,25 @@ RSpec.describe Article, :type => :model do
       expect(@article.published_at).to match /\d{2}\.\d{2}\.\d{4}/
     end
   end
+
+  describe '#author' do
+    it 'should return article author\'s email' do
+      expect(@article.author).to eq @article.user.email
+    end
+  end
+
+  describe '#newest' do
+    before do
+      Article.destroy_all
+      @article_old = FactoryGirl.create(
+        :article, title: 'old', created_at: DateTime.now() - 1)
+      @article_new = FactoryGirl.create(
+        :article, title: 'new', created_at: DateTime.now())
+    end
+
+    it 'returns articles sorted by created_at' do
+      expect(Article.newest.to_a).to eq [@article_new, @article_old]
+    end
+  end
 end
 

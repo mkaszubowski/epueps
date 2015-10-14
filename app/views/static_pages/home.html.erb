@@ -4,13 +4,13 @@
 
       <h1>Witamy<br />w platformie ePUEPS</h1>
 
-      <%= link_to 'Przeglądaj kursy', 
-                  subjects_path, 
+      <%= link_to 'Przeglądaj kursy',
+                  subjects_path,
                   class: 'button button-secondary' %>
       <% if user_signed_in? %>
         <%= link_to 'O platformie', '#', class: 'button button-primary' %>
       <% else %>
-        <%= link_to 'Zaloguj się', 
+        <%= link_to 'Zaloguj się',
                   new_user_session_path,
                   class: 'button button-primary' %>
       <% end %>
@@ -22,27 +22,24 @@
 <div class='page-content'>
   <section id = 'home-subjects'>
     <h1>Dostępne kursy</h1>
-    <div class = 'container'>
-      <%= render @subjects %>
-
-    </div>
-    <%= link_to 'Wszystkie kursy', 
+    <%= react_component 'Subjects', limit: 3, showScopeLinks: false %>
+    <%= link_to 'Wszystkie kursy',
                 subjects_path,
-                class: 'button button-secondary' %>
+                class: 'button button-secondary all-subjects' %>
   </section>
 
   <% if @articles.any? %>
     <section id='home-articles' class='articles'>
       <h1>Najnowsze artykuły</h1>
       <div class='container'>
-        <%= render @articles %>
+        <%= render partial: 'articles/homepage_articles', locals: { articles: @articles.to_a } %>
       </div>
 
       <%= link_to 'Wszystkie artykuły',
                   articles_path,
-                  class: 'button button-secondary' %>
-        
+                  class: 'button button-secondary all-articles' %>
+
     </section>
   <% end %>
-  
+
 </div>
