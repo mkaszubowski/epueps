@@ -4,7 +4,7 @@ require 'support/sign_in_helper.rb'
 
 
 RSpec.describe 'Users', :type => :request do
-  let!(:user) { FactoryGirl.create(:user) }
+  let!(:user) { FactoryGirl.create(:user, email: 'foo@bar.com') }
   let!(:user2) { FactoryGirl.create(:user, email: 'bar@boo.com') }
   let!(:admin) { FactoryGirl.create(:admin, email: 'foo@baz.com') }
 
@@ -21,7 +21,6 @@ RSpec.describe 'Users', :type => :request do
       before do
         sign_in(user)
       end
-
 
       it { should have_content 'Zalogowano pomyślnie' }
       it { should have_content 'Wyloguj się' }
