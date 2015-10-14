@@ -1,21 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe User, :type => :model do
-
   before do
-    @user = User.new(email: "foo@bar.com", password: "foobar123")
+    @user = User.new(email: 'foo@bar.com', password: 'foobar123')
     @user.save
   end
 
   subject { @user }
 
-  describe "when email is blank" do
-    before { @user.email = " " }
+  describe 'when email is blank' do
+    before { @user.email = ' ' }
     it { should_not be_valid }
   end
 
-  describe "when password is blank" do
-    before { @user.password = " " }
+  describe 'when password is blank' do
+    before { @user.password = ' ' }
     it { should_not be_valid }
   end
 
@@ -91,15 +90,15 @@ RSpec.describe User, :type => :model do
     end
   end
 
-  describe "#to_s" do
-    it "should display user's email" do
+  describe '#to_s' do
+    it 'should display user\'s email' do
       expect(@user.to_s).to eq @user.email
     end
   end
 
-  describe "when email is already in database" do
+  describe 'when email is already in database' do
     before do
-      @user2 = User.new(email: "foo@bar.com", password: "foobar123")
+      @user2 = User.new(email: 'foo@bar.com', password: 'foobar123')
       @user2.save
     end
 
@@ -107,4 +106,9 @@ RSpec.describe User, :type => :model do
     it { should_not be_valid }
   end
 
+  describe 'profile' do
+    it 'is automatically generated for new users' do
+      expect { FactoryGirl.create(:user) }.to change(Profile, :count).by(1)
+    end
+  end
 end

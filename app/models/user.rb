@@ -5,9 +5,11 @@ class User < ActiveRecord::Base
   enum role: [:normal, :moderator, :admin]
 
   has_many :articles
+  has_one :profile
 
   validates :username, presence: true, on: :update
 
+  after_create :generate_profile
   after_create :generate_username, if: proc { username.blank? }
 
   def can_view_admin_panel?
@@ -22,5 +24,9 @@ class User < ActiveRecord::Base
 
   def generate_username
     self.username = email.gsub(/\@.*/, '')
+  end
+
+  def generate_profile
+    Profile.create(user: self) if profile.nil?
   end
 end

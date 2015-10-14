@@ -1,4 +1,7 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :profile do
+    user nil
+  end
+
 
   factory :contact_email do
     name "name"
@@ -24,9 +27,9 @@ FactoryGirl.define do
   end
 
   factory :user do
-    email         'foo@bar.com'
+    email         { Faker::Internet.email }
     password      'foobar123'
-    username      'user'
+    username      { Faker::Internet.user_name }
 
     factory :admin do
       role        'admin'
