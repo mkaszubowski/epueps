@@ -14,7 +14,7 @@ set :deploy_to, '/home/deploy/epueps'
 # Default value for :scm is :git
 set :scm, :git
 
-set :rollbar_token, Rails.application.secrets.rollbar_token
+set :rollbar_token, ENV['ROLLBAR_TOKEN']
 set :rollbar_env, Proc.new { fetch :production }
 set :rollbar_role, Proc.new { :app }
 
