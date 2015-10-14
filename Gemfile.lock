@@ -232,6 +232,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-rails (0.3.4)
+      pry (>= 0.9.10)
     rack (1.6.4)
     rack-contrib (1.4.0)
       git-version-bump (~> 0.15)
@@ -420,6 +422,7 @@ DEPENDENCIES
   meta_request
   mini_magick
   pg (= 0.15.1)
+  pry-rails
   rails (~> 4.2.0)
   rails-i18n (~> 4.0.0)
   rails_12factor (= 0.0.2)
