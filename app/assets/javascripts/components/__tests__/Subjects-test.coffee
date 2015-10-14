@@ -7,7 +7,7 @@ TestUtils = React.addons.TestUtils
 Subjects = require('../subjects.js.jsx.coffee')
 $ = require('jquery')
 
-describe 'subjects', ->
+describe 'Subjects', ->
 
   it 'should display popular/recent toggle', ->
     subjects = TestUtils.renderIntoDocument(
