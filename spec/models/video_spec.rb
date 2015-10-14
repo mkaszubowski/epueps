@@ -12,6 +12,10 @@ RSpec.describe Video, :type => :model do
 
   subject { @video }
 
+  it 'has a valid factory' do
+    expect(build(:video)).to be_valid
+  end
+
   it { should respond_to :name }
   it { should respond_to :link }
   it { should respond_to :lesson_id }
@@ -24,7 +28,7 @@ RSpec.describe Video, :type => :model do
   end
 
   describe "when link is blank" do
-    before { @video.link = " " } 
+    before { @video.link = " " }
     it { should_not be_valid }
   end
 
@@ -34,8 +38,8 @@ RSpec.describe Video, :type => :model do
   end
 
   describe "when link has wrong format" do
-    formats = %w[ youtube.com/watch?v=123das 
-                  youtube.com/watch?v=123&list=PL123 
+    formats = %w[ youtube.com/watch?v=123das
+                  youtube.com/watch?v=123&list=PL123
                   https://youtube.com/watch?v=123&index=1&list=1]
 
     formats.each do |format|
@@ -73,7 +77,7 @@ RSpec.describe Video, :type => :model do
   describe "default scope" do
     before do
      @video2 = Video.create!(
-       name: "abc", 
+       name: "abc",
        link: "youtube.com/watch?v=123",
        signed_in_only: false,
        lesson_id: lesson.id)
