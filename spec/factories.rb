@@ -1,7 +1,7 @@
-FactoryGirl.define do  factory :profile do
-    user nil
+FactoryGirl.define do
+  factory :profile do
+    association :user
   end
-
 
   factory :contact_email do
     name "name"
