@@ -17,8 +17,6 @@
 epueps.sublime-workspace
 epueps.sublime-project
 /coverage
-/config/secrets.yml
-config/secrets.yml
 /config/database.yml
 /config/deploy.rb
 .coveralls.yml
@@ -28,3 +26,6 @@ config/secrets.yml
 .tags
 .tags_sorted_by_file
 .capistrano/metrics
+npm-debug.log
+config/secrets.yml
+.env
