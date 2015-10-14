@@ -1,4 +1,9 @@
 FactoryGirl.define do
+  factory :profile_video do
+    association :profile
+    association :video
+  end
+
   factory :subject do
     name          "Subject"
     image_name    "subject.jpg"
@@ -8,7 +13,7 @@ FactoryGirl.define do
 
   factory :lesson do
     name          "Lesson"
-    description   "Lorem ipsum"       
+    description   "Lorem ipsum"
   end
 
   factory :video do
@@ -23,7 +28,7 @@ FactoryGirl.define do
     factory :admin do
       admin       true
     end
-  end 
+  end
 
   factory :article do
     title          "Title"
