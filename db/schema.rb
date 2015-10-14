@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014132124) do
+ActiveRecord::Schema.define(version: 20151014155532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,16 @@ ActiveRecord::Schema.define(version: 20151014132124) do
     t.integer  "position"
   end
 
+  create_table "profile_videos", force: :cascade do |t|
+    t.integer  "profile_id"
+    t.integer  "video_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "profile_videos", ["profile_id"], name: "index_profile_videos_on_profile_id", using: :btree
+  add_index "profile_videos", ["video_id"], name: "index_profile_videos_on_video_id", using: :btree
+
   create_table "profiles", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -141,5 +151,7 @@ ActiveRecord::Schema.define(version: 20151014132124) do
     t.boolean  "signed_in_only",             default: false
   end
 
+  add_foreign_key "profile_videos", "profiles"
+  add_foreign_key "profile_videos", "videos"
   add_foreign_key "profiles", "users"
 end
