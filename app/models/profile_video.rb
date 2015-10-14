@@ -4,4 +4,5 @@ class ProfileVideo < ActiveRecord::Base
 
   validates :profile_id, presence: true
   validates :video_id, presence: true
+  validates_uniqueness_of :video_id, scope: :profile_id
 end
