@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 RSpec.describe 'Profile videos', type: :request do
   describe 'POST /profile_videos' do
     let!(:video) { create(:video) }
@@ -36,8 +35,6 @@ RSpec.describe 'Profile videos', type: :request do
       it 'returns status code 422' do
         expect(response.status).to eq 422
       end
-
     end
   end
-
 end
