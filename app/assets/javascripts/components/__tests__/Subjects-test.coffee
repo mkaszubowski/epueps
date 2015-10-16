@@ -3,12 +3,13 @@ jest
   .dontMock '../subject.js.jsx.coffee'
   .dontMock '../subjectScopeLinks.js.jsx.coffee'
 
-React = require('react/addons')
+React = require('react')
 ReactDOM = require('react-dom');
-TestUtils = React.addons.TestUtils
+TestUtils = require('react-addons-test-utils')
+$ = require('jquery')
+
 Subjects = require('../subjects.js.jsx.coffee')
 SubjectScopeLinks = require('../subjectScopeLinks.js.jsx.coffee')
-$ = require('jquery')
 
 describe 'Subjects', ->
 

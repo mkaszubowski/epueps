@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "react-youtube": "*",
+    "react-addons-test-utils": "*",
     "coffeeify": "*",
     "coffee-script": "*",
     "browserify": "*",
