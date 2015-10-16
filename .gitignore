@@ -27,5 +27,4 @@ epueps.sublime-project
 .tags_sorted_by_file
 .capistrano/metrics
 npm-debug.log
-config/secrets.yml
 .env
