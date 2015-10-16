@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   resources :articles, only: [:new, :create, :show, :index]
   resources :contact_emails, only: [:create]
+  resources :profile_videos, only: [:create]
 
   get '/contact', to: 'contact_emails#new'
 

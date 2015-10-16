@@ -1,4 +1,9 @@
 FactoryGirl.define do
+  factory :profile_video do
+    association :profile
+    association :video
+  end
+
   factory :profile do
     association :user
   end
@@ -19,11 +24,13 @@ FactoryGirl.define do
   factory :lesson do
     name          'Lesson'
     description   'Lorem ipsum'
+    association   :subject
   end
 
   factory :video do
     name          'Lesson video'
     link          'https://www.youtube.com/watch?v=CkhlTW7rjLk'
+    association   :lesson
   end
 
   factory :user do
@@ -34,7 +41,6 @@ FactoryGirl.define do
     factory :admin do
       role        'admin'
     end
-
     factory :moderator do
       role        'moderator'
     end
@@ -45,6 +51,4 @@ FactoryGirl.define do
     body           'Body'
     user_id        1
   end
-
-
 end
