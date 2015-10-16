@@ -24,5 +24,4 @@ class Article < ActiveRecord::Base
   def author
     user.email
   end
-
 end
