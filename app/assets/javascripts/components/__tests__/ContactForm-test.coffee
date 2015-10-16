@@ -17,9 +17,6 @@ describe 'ContactForm', ->
 
     node = ReactDOM.findDOMNode(contactForm)
 
-    expect(node.textContent)
-      .toContain('Imię')
-    expect(node.textContent)
-      .toContain('Email')
-    expect(node.textContent)
-      .toContain('Wiadomość')
+    expect(node.textContent).toContain('Imię')
+    expect(node.textContent).toContain('Email')
+    expect(node.textContent).toContain('Wiadomość')
