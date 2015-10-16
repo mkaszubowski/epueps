@@ -13,7 +13,7 @@ Subjects = React.createClass
       scope: @props.scope || 'popular'
       }
 
-  loadSubjectsFromServer: ()->
+  loadSubjectsFromServer: () ->
     url = 'subjects?'
     if @props.hasOwnProperty('limit')
       url += 'limit=' + @props.limit + '&'
@@ -23,7 +23,7 @@ Subjects = React.createClass
     $.ajax
       url: url
       dataType: 'JSON'
-      success: (subjects) =>
+      success: (subjects) ->
         @setState({subjects: subjects})
       error: (xhr, status, error) ->
         console.log(error.toString())
