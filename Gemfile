@@ -65,6 +65,7 @@ gem 'capistrano-rails-console'
 gem 'capistrano-rails'
 gem 'capistrano-npm'
 
+gem 'le'
 
 gem 'cancancan', '~> 1.10'
 
