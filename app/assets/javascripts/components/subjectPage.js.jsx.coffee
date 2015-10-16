@@ -50,6 +50,7 @@ SubjectPage = React.createClass
       })
 
   playNextVideo: ->
+    @markCurrentVideoAsWatched()
     if @lessonHasMoreVideos(@state.currentLesson)
       @playNextLessonVideo()
     else
@@ -75,6 +76,22 @@ SubjectPage = React.createClass
         currentLessonIndex: index,
         lessonCurrentVideoIndex: 0
         })
+
+  markCurrentVideoAsWatched: ->
+    console.log('markCurrentVideoAsWatched')
+    $.ajax
+      url: '/profile_videos'
+      dataType: 'json'
+      method: 'POST'
+      data: {
+        video_id: '1'
+      }
+      success: (data) =>
+        console.log(data)
+
+      error: (xhr, status, error) ->
+        console.log(error.toString())
+
 
   render: ->
     section
