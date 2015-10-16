@@ -1,10 +1,13 @@
 jest
   .dontMock '../subjects.js.jsx.coffee'
   .dontMock '../subject.js.jsx.coffee'
+  .dontMock '../subjectScopeLinks.js.jsx.coffee'
 
 React = require('react/addons')
+ReactDOM = require('react-dom');
 TestUtils = React.addons.TestUtils
 Subjects = require('../subjects.js.jsx.coffee')
+SubjectScopeLinks = require('../subjectScopeLinks.js.jsx.coffee')
 $ = require('jquery')
 
 describe 'Subjects', ->
@@ -14,8 +17,9 @@ describe 'Subjects', ->
       React.createElement Subjects
     )
 
-    expect(subjects.getDOMNode().textContent)
-      .toBe('Popularne / Najnowsze')
+    expect(
+      ReactDOM.findDOMNode(subjects).childNodes[0].className
+    ).toBe('subject-scope-options')
 
   it 'displays popular subjects by default', ->
     subjects = TestUtils.renderIntoDocument(
