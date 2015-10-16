@@ -4,7 +4,7 @@ jest
   .dontMock '../subjectScopeLinks.js.jsx.coffee'
 
 React = require('react')
-ReactDOM = require('react-dom');
+ReactDOM = require('react-dom')
 TestUtils = require('react-addons-test-utils')
 $ = require('jquery')
 
