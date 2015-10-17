@@ -57,11 +57,8 @@ module Admin
       if @lesson.update_attributes(lesson_params)
         flash[:success] = 'Zaktualizowano lekcję'
         redirect_to admin_subject_path(@subject)
-      elsif @lesson.errors.any?
-        flash.now[:error] = 'Wystąpiły błędy w formularzu'
-        render 'edit'
       else
-        flash.now[:error] = 'Wystąpił nieznany błąd. Spróbuj ponownie później'
+        flash.now[:error] = 'Wystąpiły błędy w formularzu'
         render 'edit'
       end
     end
