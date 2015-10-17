@@ -58,7 +58,7 @@ module Admin
         flash[:success] = 'Zaktualizowano lekcję'
         redirect_to admin_subject_path(@subject)
       else
-        flash.now[:error] = 'Wystąpiły błędy w formularzu'
+        flash.now[:error] = t('errors.messages.form')
         render 'edit'
       end
     end
