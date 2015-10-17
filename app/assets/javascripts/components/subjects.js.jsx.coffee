@@ -23,7 +23,7 @@ Subjects = React.createClass
     $.ajax
       url: url
       dataType: 'JSON'
-      success: (subjects) ->
+      success: (subjects) =>
         @setState({subjects: subjects})
       error: (xhr, status, error) ->
         console.log(error.toString())
@@ -55,6 +55,6 @@ Subjects = React.createClass
       R.div
         className: 'subjects row'
         for subject in @state.subjects
-          React.createElement Subject, subject: subject
+          React.createElement Subject, subject: subject, key: "subject-#{subject.id}"
 
 module.exports = Subjects
