@@ -78,17 +78,22 @@ SubjectPage = React.createClass
         })
 
   markCurrentVideoAsWatched: ->
-    console.log('markCurrentVideoAsWatched')
+    lessons = @state.lessons
+    lessonId = @state.currentLessonIndex
+    videoId = @state.lessonCurrentVideoIndex
+    lessons[lessonId].videos[videoId].watched = true
+    @setState(lessons: lessons)
+
+    @markAsWatchedOnServer()
+
+  markAsWatchedOnServer: ->
     $.ajax
       url: '/profile_videos'
       dataType: 'json'
       method: 'POST'
       data: {
-        video_id: '1'
+        video_id: @state.currentVideo.id
       }
-      success: (data) =>
-        console.log(data)
-
       error: (xhr, status, error) ->
         console.log(error.toString())
 
@@ -101,6 +106,7 @@ SubjectPage = React.createClass
         React.createElement SubjectPageMenu,
           lessons: @state.lessons,
           currentLesson: @state.currentLesson,
+          currentVideo: @state.currentVideo,
           setCurrentLesson: @setCurrentLesson,
           setCurrentVideo: @setCurrentVideo
 

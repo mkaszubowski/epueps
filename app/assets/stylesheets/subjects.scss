@@ -184,6 +184,15 @@
   a {
     color: #343434 !important;
   }
+
+  li {
+    line-height: 30px;
+
+    &.watched {
+      background: image_url('check.png') no-repeat;
+      background-position: 95% center;
+    }
+  }
 }
 
 .video {
