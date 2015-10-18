@@ -187,10 +187,15 @@
 
   li {
     line-height: 30px;
+    cursor: pointer;
 
     &.watched {
       background: image_url('check.png') no-repeat;
       background-position: 95% center;
+    }
+
+    &.active {
+      font-weight: bold;
     }
   }
 }
