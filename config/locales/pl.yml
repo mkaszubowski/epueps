@@ -235,3 +235,6 @@ pl:
       long: "%d %B %Y %H:%M"
       short: "%d %b %H:%M"
     pm: po południu
+  pages:
+    titles:
+      watched_videos: 'Obejrzane filmy'
