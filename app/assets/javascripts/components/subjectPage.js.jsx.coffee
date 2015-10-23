@@ -94,6 +94,10 @@ SubjectPage = React.createClass
       data: {
         video_id: @state.currentVideo.id
       }
+      beforeSend: (xhr) ->
+        token = $("meta[name='csrf-token']").attr("content")
+        xhr.setRequestHeader("X-CSRF-Token", token);
+
       error: (xhr, status, error) ->
         console.log(error.toString())
 
