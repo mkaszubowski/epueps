@@ -31,6 +31,10 @@ $text-color: #575757;
 		margin-bottom: 6rem;
 		margin-right: 1rem;
 	}
+
+	.button {
+		box-shadow: 0px 2px 5px 1px rgba(0, 0, 0, 0.3);
+	}
 }
 
 #home-articles {
@@ -48,5 +52,7 @@ $text-color: #575757;
 
 .all-subjects {
 	position: relative;
-	top: -20px
+	top: -20px;
+	width: 350px;
+	padding: 1rem 0;
 }

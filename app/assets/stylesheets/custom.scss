@@ -72,7 +72,7 @@ input {
 h1 {
   font-size: 3em;
   font-family: 'Roboto Slab', serif;
-  margin-bottom: 0.25em;
+  margin-bottom: 0.5em;
 }
 .container {
   width: 90%;
@@ -164,13 +164,12 @@ h1 {
 
 .button {
   display: inline-block;
-  padding: 0.5rem 0;
+  padding: 0.7rem 0;
   text-align: center;
   color: #fff;
   text-decoration: none;
   width: 12rem;
   border: 0;
-  border-radius: 3px;
 
 
   font-family: 'Roboto', sans-serif;
@@ -178,24 +177,22 @@ h1 {
   font-size: 0.9rem;
 
   transition: 0.3s;
+  box-shadow: 0px 2px 1px 1px rgba(0, 0, 0, 0.1);
 
   cursor: pointer;
 }
 .button-primary {
-  background: $primary;
-  border-bottom: 5px solid darken($primary, 12%);
+  background: linear-gradient(to right, #eb8a45 0%,#eb8a45 50%,#ed685a 100%);
 
   &:hover {
-    background: darken($primary, 5%);
   }
 }
 .button-secondary {
-  background: $secondary;
-  border-bottom: 5px solid darken($secondary, 12%);
+  background: linear-gradient(to right, #008F9C 0%,#008F9C 50%,#00759c 100%);
 
   &:hover {
-    background: darken($secondary, 5%);
-    color: #fff;
+    // background: darken($secondary, 5%);
+    // color: #fff;
   }
 }
 
@@ -220,13 +217,16 @@ h1 {
     }
   }
 
+  .btn {
+    border-radius: 0;
+  }
+
   input:not([type="checkbox"]):not([type="radio"]), textarea {
     font-family: 'Roboto', sans-serif;
     font-size: 1rem;
     width: 100%;
     box-sizing: border-box;
     margin-bottom: 1em;
-    border-radius: 3px;
     padding: 0 0.5em;
     line-height: 1.5em;
     font-weight: 300;
@@ -260,7 +260,7 @@ h1 {
     margin: 0.5em auto;
     display: block;
     color: #fff;
-    height: 2.5em;
+    height: 3em;
     font-weight: 300;
   }
 }
@@ -297,7 +297,7 @@ h1 {
   box-sizing: border-box;
   width: 100%;
 
-  box-shadow: 0px 0px 4px #E8E8E8;
+  box-shadow: 0px 2px 4px #E8E8E8;
 
   position: relative;
   padding-bottom: 4em;
