@@ -1,10 +1,12 @@
 jest
   .dontMock '../contactForm.js.jsx.coffee'
 
-React = require('react/addons')
-TestUtils = React.addons.TestUtils
-ContactForm = require('../contactForm.js.jsx.coffee')
+React = require('react')
+ReactDOM = require('react-dom');
+TestUtils = require('react-addons-test-utils')
 $ = require('jquery')
+
+ContactForm = require('../contactForm.js.jsx.coffee')
 
 describe 'ContactForm', ->
 
@@ -13,9 +15,8 @@ describe 'ContactForm', ->
       React.createElement ContactForm
     )
 
-    expect(contactForm.getDOMNode().textContent)
-      .toContain('Imię')
-    expect(contactForm.getDOMNode().textContent)
-      .toContain('Email')
-    expect(contactForm.getDOMNode().textContent)
-      .toContain('Wiadomość')
+    node = ReactDOM.findDOMNode(contactForm)
+
+    expect(node.textContent).toContain('Imię')
+    expect(node.textContent).toContain('Email')
+    expect(node.textContent).toContain('Wiadomość')

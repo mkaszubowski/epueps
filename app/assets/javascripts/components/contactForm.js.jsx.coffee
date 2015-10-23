@@ -41,9 +41,9 @@ ContactForm = React.createClass
       beforeSend: (xhr) ->
         token = $("meta[name='csrf-token']").attr("content")
         xhr.setRequestHeader("X-CSRF-Token", token);
-      success: (contact_email) =>
+      success: (contact_email) ->
         @clearFields()
-      error: (xhr, status, error) =>
+      error: (xhr, status, error) ->
         console.log(status + " " + error.toString())
         console.log(xhr)
   render: ->
@@ -51,11 +51,11 @@ ContactForm = React.createClass
       onSubmit: @sendContactEmail,
       className: 'custom-form'
       R.h1(null, 'Kontakt')
-      R.label(for: 'name', 'Imię:')
+      R.label(htmlFor: 'name', 'Imię:')
       R.input(type: 'text', name: 'name', value: @state.name, onChange: @handleNameChange)
-      R.label(for: 'email', 'Email:')
+      R.label(htmlFor: 'email', 'Email:')
       R.input(type: 'text', name: 'email', value: @state.email, onChange: @handleEmailChange)
-      R.label(for: 'message', 'Wiadomość:')
+      R.label(htmlFor: 'message', 'Wiadomość:')
       R.textarea(name: 'message', value: @state.message, onChange: @handleMessageChange)
       R.input(type: 'submit', value: 'Wyślij', className: 'button button-primary')
 

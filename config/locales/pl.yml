@@ -120,6 +120,7 @@ pl:
   errors:
     format: "%{attribute} %{message}"
     messages:
+      form: 'Wystąpiły błędy w formularzu'
       accepted: musi zostać zaakceptowane
       blank: nie może być puste
       confirmation: nie zgadza się z polem %{attribute}
@@ -234,3 +235,6 @@ pl:
       long: "%d %B %Y %H:%M"
       short: "%d %b %H:%M"
     pm: po południu
+  pages:
+    titles:
+      watched_videos: 'Obejrzane filmy'

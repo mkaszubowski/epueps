@@ -18,6 +18,7 @@ SubjectPageMenu = React.createClass
             lesson.name
           React.createElement VideoSubmenu,
             lesson: lesson,
+            currentVideo: @props.currentVideo
             setCurrentVideo: @props.setCurrentVideo
 
 VideoSubmenu = React.createClass
@@ -25,8 +26,12 @@ VideoSubmenu = React.createClass
     ul
       className: 'lesson-videos'
       for video, index in @props.lesson.videos
+        videoClass = 'video-li'
+        videoClass += ' watched' if video.watched
+        videoClass += ' active' if video == @props.currentVideo
+
         li
-          className: 'video-li',
+          className: videoClass,
           onClick: @props.setCurrentVideo.bind(null, index),
           key: 'video' + video.id,
           a(
@@ -34,6 +39,5 @@ VideoSubmenu = React.createClass
               className: 'video-link',
             },
             video.name)
-
 
 module.exports = SubjectPageMenu

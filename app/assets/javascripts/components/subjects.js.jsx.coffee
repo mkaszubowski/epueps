@@ -13,7 +13,7 @@ Subjects = React.createClass
       scope: @props.scope || 'popular'
       }
 
-  loadSubjectsFromServer: ()->
+  loadSubjectsFromServer: () ->
     url = 'subjects?'
     if @props.hasOwnProperty('limit')
       url += 'limit=' + @props.limit + '&'
@@ -55,6 +55,6 @@ Subjects = React.createClass
       R.div
         className: 'subjects row'
         for subject in @state.subjects
-          React.createElement Subject, subject: subject
+          React.createElement Subject, subject: subject, key: "subject-#{subject.id}"
 
 module.exports = Subjects
