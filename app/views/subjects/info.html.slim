@@ -33,4 +33,4 @@
       section.table-of-contents.col-md-4
         h2 Dostępne zagadnienia
         = render partial: 'subjects/table_of_contents', locals: {lessons: @lessons, subject: @subject}
-        = link_to "Zacznij kurs", subject_path(@subject), class: "button button-primary"
+        = link_to "Zacznij kurs", subject_path(@subject), class: "button button-primary start-subject"
