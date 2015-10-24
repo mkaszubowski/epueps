@@ -5,6 +5,72 @@
 
 @import "vars";
 
+$subject-header-height: 200px;
+
+.subject {
+  background: #fff;
+  padding: 1em 1.5em;
+  display: inline-block;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  width: 100%;
+
+  box-shadow: 0px 2px 3px 1px rgba(65, 65, 65, 0.15);
+
+  position: relative;
+  padding-bottom: 4em;
+  padding-top: $subject-header-height + 20px;
+
+  text-align: left;
+
+
+  .subject-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $subject-header-height;
+
+    img {
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      position: absolute;
+    }
+
+    h2 {
+      z-index: 100;
+      bottom: 20px;
+      left: 21px;
+      position: absolute;
+
+      a {
+        color: #fff;
+        font-weight: 100;
+      }
+    }
+  }
+
+
+  .button {
+    margin: 0 auto;
+    position: absolute;
+
+    width: 85%;
+    height: 3em;
+    line-height: 3em;
+
+    padding: 0;
+
+    left: 7.5%;
+    bottom: 1em;
+    color: #fff !important;
+  }
+
+}
+
 .subjects-controller.show {
 
   header#page-header {
@@ -26,39 +92,40 @@
   }
 }
 
-.subject-header {
-  position: relative;
-  height: $subject-info-header-height;
-  overflow: hidden;
-  margin-bottom: 3em;
-  box-shadow: 0px 5px 7px -7px #565656;
-
-  h1 {
+.info {
+  .subject-header {
     position: relative;
-    line-height: $subject-info-header-height;
-    font-size: 3.5em;
+    height: $subject-info-header-height;
+    overflow: hidden;
+    margin-bottom: 3em;
+    box-shadow: 0px 5px 7px -7px #565656;
 
-    color: #fff;
-  }
-  &.light {
     h1 {
-      color: #666666;
+      position: relative;
+      line-height: $subject-info-header-height;
+      font-size: 3.5em;
+
+      color: #fff;
     }
-  }
+    &.light {
+      h1 {
+        color: #666666;
+      }
+    }
 
-  .subject-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    img {
+    .subject-image {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
+      height: 100%;
+
+      img {
+        width: 100%;
+      }
     }
   }
-  }
-
+}
 
 .subjects {
   text-align: center;
