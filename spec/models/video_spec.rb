@@ -108,7 +108,7 @@ RSpec.describe Video, type: :model do
         @video = create(:video)
       end
 
-      it 'should be true' do
+      it 'should be false' do
         expect(@video.watched?(@user)).to eq false
       end
     end
