@@ -25,11 +25,17 @@ class Lesson < ActiveRecord::Base
 
   def to_s
     name
-  end  
+  end
 
   def color_class
     return '' if color_id.nil?
-    "color-#{color_id}" 
+    "color-#{color_id}"
+  end
+
+  def watched?(user)
+    return false unless user
+
+    (videos - user.profile.watched_videos).empty?
   end
 
   protected
