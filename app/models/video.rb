@@ -34,6 +34,12 @@ class Video < ActiveRecord::Base
     signed_in_only
   end
 
+  def watched?(user)
+    return false unless user
+
+    user.profile.watched_videos.include? self
+  end
+
   protected
 
   def validate!
