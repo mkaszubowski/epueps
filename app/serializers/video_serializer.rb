@@ -4,9 +4,7 @@ class VideoSerializer < ActiveModel::Serializer
   private
 
   def watched
-    return false unless current_profile
-
-    current_profile.watched_videos.include? object
+    object.watched?(current_user)
   end
 
   def current_profile
