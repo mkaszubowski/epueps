@@ -110,5 +110,11 @@ RSpec.describe User, :type => :model do
     it 'is automatically generated for new users' do
       expect { FactoryGirl.create(:user) }.to change(Profile, :count).by(1)
     end
+
+    it 'is destroyed after destroying the user' do
+      user = FactoryGirl.create(:user)
+
+      expect { user.destroy }.to change(Profile, :count).by(-1)
+    end
   end
 end

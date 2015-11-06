@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   enum role: [:normal, :moderator, :admin]
 
   has_many :articles
-  has_one :profile
+  has_one :profile, dependent: :destroy
 
   validates :username, presence: true, on: :update
 
