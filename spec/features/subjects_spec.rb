@@ -18,7 +18,6 @@ RSpec.describe 'Subjects', :type => :request do
     intro_video_link: 'https://youtube.com/watch?v=test',
     status: 'published') }
 
-
   describe 'index page' do
     before do
       pending('implement js test for react')
@@ -57,7 +56,6 @@ RSpec.describe 'Subjects', :type => :request do
     describe 'with default order' do
       it { should have_content /S1.*S2/ }
     end
-
   end
 
   describe 'info page' do
@@ -73,7 +71,6 @@ RSpec.describe 'Subjects', :type => :request do
     it { should have_title normal_title("#{subject1.name} - informacje") }
     it { should have_content subject1.name }
     it { should have_content subject1.description }
-    it { should have_content 'Dostępne lekcje' }
     it { should have_link 'Zacznij kurs' }
 
     it { should have_css 'iframe' }
@@ -86,13 +83,6 @@ RSpec.describe 'Subjects', :type => :request do
       it 'should redirect to subject#show' do
         expect(page).to have_css('h1', text: subject1.name)
       end
-    end
-  end
-
-  describe 'show page' do
-    describe "when subject hasn't got any lessons" do
-      before { visit subject_path(subject1) }
-      it { should have_content 'nie ma żadnych lekcji' }
     end
   end
 end
