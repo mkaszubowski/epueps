@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :profile_videos, only: [:create]
 
   get '/contact', to: 'contact_emails#new'
+  get '/about', to: 'static_pages#about'
 
   namespace :admin do
     resources :users
