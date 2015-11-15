@@ -1,0 +1,43 @@
+@import 'vars';
+
+.static-pages-controller.about {
+  #page-header {
+    margin-bottom: 0;
+  }
+
+  .about-splash {
+    height: 450px;
+    overflow: hidden;
+    margin-bottom: 2em;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .section-1 {
+    margin-bottom: 2em;
+
+    img {
+      float: left;
+    }
+
+    p {
+      &:after {
+        content: '';
+        display: block;
+        clear: both;
+      }
+    }
+  }
+
+  .section-2 {
+    // width: 300px;
+    margin: 0 auto;
+
+    img {
+      width: 300px;
+      max-height: 400px;
+    }
+  }
+}

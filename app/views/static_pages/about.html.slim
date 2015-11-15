@@ -1,4 +1,22 @@
 - provide :title, "O serwisie"
+- provide :no_container, true
 
-h1
-  = "O Serwisie"
+section.about-splash
+  = image_tag 'put_photo.jpg', alt: 'Politechnika Poznańska'
+.container
+  h1.center
+    | O Serwisie
+
+  section.section-1
+    = image_tag 'adam_dabrowski.jpg', alt: 'prof. dr hab. Adam Dąbrowski'
+    p
+      | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+  section.section-2.row
+    .col-md-6
+      = image_tag 'filip_rozanski.jpg', alt: 'Filip Różański'
+    .col-md-6
+      = image_tag 'jan_wiktor_meissner.jpg', alt: 'Jan Wiktor Maissner'
+
+  p
+      | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
