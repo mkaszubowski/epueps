@@ -17,6 +17,7 @@ Subject = React.createClass
         className: 'subject col-md-4 col-sm-6'
         R.header
           className: 'subject-header'
+          R.section(className: 'gradient-overlay', '')
           R.h2(null, R.a({href: path}, this.props.subject.name ))
           R.img({src: this.props.subject.image_url, alt: this.props.subject.name})
 
