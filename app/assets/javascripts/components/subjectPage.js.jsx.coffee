@@ -22,17 +22,29 @@ SubjectPage = React.createClass
       url: url
       dataType: 'json'
       success: (lessons) =>
+        currentLesson = @findCurrentLesson(lessons)
+        currentVideo = @findCurrentVideo(currentLesson)
+
         @setState({
           lessons: lessons,
-          currentLesson: lessons[0],
-          currentVideo: lessons[0].videos[0]
+          currentLesson: currentLesson,
+          currentVideo: currentVideo,
           lessonCurrentVideoIndex: 0,
-          currentLessonIndex: 0,
+          currentLessonIndex: 0
         })
-        console.log(lessons)
 
       error: (xhr, status, error) ->
         console.log(error.toString())
+
+  findCurrentLesson: (lessons) ->
+    lessons.find((lesson, index, array) ->
+      return !lesson.watched
+    ) || lessons[0]
+
+  findCurrentVideo: (currentLesson) ->
+    currentLesson.videos.find((video, index, array) ->
+      return !video.watched
+    ) || currentLesson.videos[0]
 
   componentDidMount: ->
     @loadResources()
@@ -98,7 +110,7 @@ SubjectPage = React.createClass
         token = $("meta[name='csrf-token']").attr("content")
         xhr.setRequestHeader("X-CSRF-Token", token);
 
-      error: (xhr, status, error) ->
+     error: (xhr, status, error) ->
         console.log(error.toString())
 
 
