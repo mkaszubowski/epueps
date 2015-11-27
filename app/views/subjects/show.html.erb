@@ -17,7 +17,7 @@
 
 <div class='container'>
   <% if @lessons.any? %>
-    <%= react_component 'SubjectPage', subject: @subject %>
+    <%= react_component 'SubjectPage', subject: @subject, current_video: @current_video %>
   <% else %>
     <p>Aktualnie nie ma żadnych zagadnień z tego przedmiotu. Prawdopodobnie zostaną one niedługo dodane. Prosimy spróbować później lub skontaktować się z administracją.</p>
   <% end %>
