@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151014155532) do
+ActiveRecord::Schema.define(version: 20151216195404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -149,6 +149,7 @@ ActiveRecord::Schema.define(version: 20151014155532) do
     t.datetime "updated_at"
     t.string   "name",           limit: 255
     t.boolean  "signed_in_only",             default: false
+    t.integer  "position"
   end
 
   add_foreign_key "profile_videos", "profiles"
