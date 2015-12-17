@@ -54,7 +54,7 @@ class Video < ActiveRecord::Base
 
   def set_initial_position
     if position.nil?
-      max_position = subject.lessons.map(&:position).compact.max.to_i
+      max_position = lesson.videos.map(&:position).compact.max.to_i
       self.position = max_position + 1
     end
   end
