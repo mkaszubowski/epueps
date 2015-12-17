@@ -1,0 +1,6 @@
+$('table.videos tbody').html("<%= j render @lesson.videos %>");
+$('<%= "#video-#{@video.id}" %>').css('background', '#fffccd');
+setInterval(function() {
+  $('<%= "#video-#{@video.id}" %>').css('background', '');
+}, 100);
+

@@ -23,7 +23,9 @@ Rails.application.routes.draw do
 
       resources :lessons, except: [:index] do
         get 'sort', to: 'lessons#sort', on: :member
-        resources :videos, except: [:show, :index]
+        resources :videos, except: [:show, :index] do
+          get 'sort', to: 'videos#sort' ,on: :member
+        end
       end
     end
 

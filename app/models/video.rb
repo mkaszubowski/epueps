@@ -1,11 +1,14 @@
 class Video < ActiveRecord::Base
   include YoutubeUtilities
 
+  acts_as_list scope: :lesson
+
   before_save :validate!
+  before_validation :set_initial_position
 
   belongs_to :lesson, counter_cache: true
 
-  default_scope { order('created_at ASC') }
+  default_scope { order('position ASC') }
 
   validates :link,
             presence: { message: 'Link do filmu nie może być pusty' },
@@ -16,7 +19,6 @@ class Video < ActiveRecord::Base
   validates :name,
             presence: { message: "Nazwa filmu nie może być pusta" }
   validates :lesson_id, presence: true
-
 
   def embed_link
     link.gsub("watch?v=", "embed/") + video_params
@@ -50,4 +52,10 @@ class Video < ActiveRecord::Base
     self.link.gsub(/^.*v=/, "")
   end
 
+  def set_initial_position
+    if position.nil?
+      max_position = subject.lessons.map(&:position).compact.max.to_i
+      self.position = max_position + 1
+    end
+  end
 end

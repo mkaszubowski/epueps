@@ -4,7 +4,7 @@ module Admin
     authorize_resource
 
     before_action :set_instance_variables,
-                  only: [:edit, :update, :destroy]
+                  only: [:edit, :update, :destroy, :sort]
 
     def new
       @video = Video.new
@@ -39,7 +39,6 @@ module Admin
       end
     end
 
-
     def destroy
       if @video.destroy
         flash[:success] = 'Usunięto film'
@@ -50,6 +49,16 @@ module Admin
       redirect_to admin_subject_lesson_path(@subject, @lesson)
     end
 
+    def sort
+      @lesson = @video.lesson
+
+      if params[:position] == 'up'
+        @video.move_higher
+      else
+        @video.move_lower
+      end
+
+    end
 
     private
 

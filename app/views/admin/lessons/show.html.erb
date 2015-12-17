@@ -2,17 +2,17 @@
 
 
 <section class="admin-panel">
-  
+
   <h2><%= link_to @subject %></h2>
   <h1><%= @lesson %></h1>
 
 
   <div class="lesson-options">
-    <%= link_to "Dodaj film", 
+    <%= link_to "Dodaj film",
                 new_admin_subject_lesson_video_path(@subject, @lesson),
                 class: "button button-secondary" %>
     <!-- TODO: Add confirmation -->
-    <%= link_to "Usuń", 
+    <%= link_to "Usuń",
                 admin_subject_lesson_path(@subject, @lesson),
                 method: :delete,
                 class: "button button-secondary" %>
@@ -23,9 +23,10 @@
 
   <h2>Filmy</h2>
 
-  <table class="primary-table">
+  <table class="primary-table videos">
     <thead>
       <tr>
+        <th>Pozycja</th>
         <th>Nazwa</th>
         <th>Adres filmu</th>
         <th>Tylko dla zalogowanych</th>

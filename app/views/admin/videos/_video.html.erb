@@ -1,4 +1,8 @@
-<tr>
+<tr id = <%= "video-#{video.id}" %>>
+  <td>
+    <%= link_to '', sort_admin_subject_lesson_video_path(@subject, @lesson, video, position: 'up'), class: 'fa fa-angle-double-up', remote: true %>
+    <%= link_to '', sort_admin_subject_lesson_video_path(@subject, @lesson, video, position: 'down'), class: 'fa fa-angle-double-down', remote: true %>
+  </td>
   <td><%= video.name %></td>
   <td><%= link_to video.link %></td>
   <td><%= video.signed_in_only ? "Tak" : "Nie" %></td>
@@ -8,7 +12,7 @@
                 admin_subject_lesson_video_path(@subject, @lesson, video),
                 method: :delete %>
     <%= link_to "Edytuj",
-                edit_admin_subject_lesson_video_path(@subject, @lesson, video) 
+                edit_admin_subject_lesson_video_path(@subject, @lesson, video)
                 %>
   </td>
 </tr>
